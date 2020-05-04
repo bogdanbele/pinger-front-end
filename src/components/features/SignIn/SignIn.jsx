@@ -23,7 +23,7 @@ export default () => {
 		return null;
 	}
 	if (error) {
-		return `Error! ${error}`;
+		console.log(error)
 	}
 	if (data) {
 		console.log(data.login);
@@ -34,13 +34,13 @@ export default () => {
 			<ThemeInput
 				name="username"
 				value={username}
-				onChange={e => setUsername(e.target.value)}
+				onChange={({target}) => setUsername(target.value)}
 			/>
 			<ThemeInput
 				name="password"
 				value={password}
 				type="password"
-				onChange={e => setPassword(e.target.value)}
+				onChange={({target}) => setPassword(target.value)}
 			/>
 
 			<button type="button" onClick={() => login()}>

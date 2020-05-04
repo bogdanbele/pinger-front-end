@@ -1,0 +1,83 @@
+@import '../../../theme/theme';
+
+.Button {
+	font-weight: 400;
+	border-radius: 4px;
+	background-color: transparent;
+	border: 2px solid var(--primary);
+	color: var(--primary);
+	transition: 0.3s;
+	cursor: pointer;
+	font-family: $font-family-primary;
+	letter-spacing: 1.5px;
+	margin-bottom: $grid_2x;
+	margin-top: $grid_2x;
+	max-width: 250px;
+	padding: 0.4rem $grid_3x;
+	text-decoration: none;
+	text-transform: capitalize;
+	user-select: none;
+
+	&:disabled {
+		border-color: gray;
+		color: gray;
+	}
+
+	&:focus{
+		outline: 0 !important;
+	}
+
+	&:hover {
+		color:  var(--color);
+		border-color: var(--color);
+	}
+
+
+	:global &--wide {
+		max-width: 100%;
+		outline: 0 !important;
+	}
+
+
+	:global &--no-border {
+		border-width: 0;
+		border-bottom-width: 2px;
+		border-color: transparent;
+		padding: 0;
+
+		&:focus {
+			border-radius: 0;
+		}
+		&:hover {
+			border-radius: 0;
+			border-color: var(--color);
+		}
+	}
+
+	:global &__active {
+		border-radius: 0;
+		border-bottom-width: 2px;
+		border-color: var(--color);
+		color: var(--color);
+	}
+	
+	
+}
+
+:global .fade-enter {
+	opacity: 0;
+}
+
+:global .fade-enter-active {
+	opacity: 1;
+	transition: opacity 500ms;
+}
+
+:global .fade-exit {
+	opacity: 1;
+}
+
+:global .fade-exit-active {
+	opacity: 0;
+	transition: opacity 500ms;
+}

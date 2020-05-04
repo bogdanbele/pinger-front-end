@@ -1,0 +1,38 @@
+@import '../../../theme/theme';
+
+.Row {
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+
+  @include breakpoint(md) {
+    padding-bottom: 5rem;
+    padding-top: 3rem;
+    width: $web-page-width;
+  }
+}
+
+.RowHolder {
+  background-color: transparent;
+  justify-content: center;
+  align-self: center;
+  display: flex;
+  width: 100%;
+}
+
+:global .Row--header {
+  @include breakpoint(md) {
+    min-height: 450px;
+    align-items: center;
+  }
+}
+
+:global .Row--splash {
+  @include breakpoint(md) {
+    min-height: 90vh;
+    align-items: center;
+  }
+}

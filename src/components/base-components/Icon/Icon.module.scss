@@ -1,0 +1,14 @@
+@import '../../../theme/theme';
+
+.Icon {
+	align-items: center;
+	display: flex;
+	height: 80px;
+	justify-content: center;
+	width: 80px;
+
+	> svg {
+		height: 25px;
+		width: 25px;
+	}
+}

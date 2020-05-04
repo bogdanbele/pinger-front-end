@@ -1,0 +1,14 @@
+@import '../../../theme/theme';
+
+.Item {
+  flex-direction: column;
+  justify-content: space-between;
+
+  svg {
+    align-self: center;
+    color: var(--primary);
+    height: 30px;
+    margin-bottom: 15px;
+    width: 30px;
+  }
+}

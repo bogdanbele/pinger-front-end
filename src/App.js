@@ -1,10 +1,26 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import logo from './logo.svg';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 import SignIn from "./components/features/SignIn";
+import {useQuery} from "@apollo/react-hooks";
+import gql from 'graphql-tag';
+
+const IS_LOGGED_IN = gql`
+  query IsUserLoggedIn {
+    isLoggedIn @client
+  }
+`;
+
+function IsLoggedIn() {
+  const { loading, error, data } = useQuery(IS_LOGGED_IN);
+  if(loading || !data ) return <p>'Loading'</p>
+  if(error) return (error)
+  return data.isLoggedIn ? <p>Esti un bepis</p> : <SignIn />;
+}
 
 function App() {
+
   return (
     <div className="App">
       <header className="App-header">
@@ -21,7 +37,7 @@ function App() {
         >
           Learn React
         </a>
-        <SignIn />
+        <IsLoggedIn />
       </header>
     </div>
   );

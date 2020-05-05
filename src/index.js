@@ -7,17 +7,36 @@ import { ApolloClient } from 'apollo-client';
 import { createHttpLink } from 'apollo-link-http';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { InMemoryCache } from 'apollo-cache-inmemory';
-
+import {resolvers} from './resolvers/index'
 // 2
 const httpLink = createHttpLink({
     uri: 'http://localhost:4000',
 });
 
+
+const cache = new InMemoryCache();
+
 // client
 const client = new ApolloClient({
     link: httpLink,
-    cache: new InMemoryCache(),
+    cache,
+    request: (operation) => {
+        const token = localStorage.getItem('token');
+        operation.setContext({
+            headers: {
+                authorization: token ? `Bearer ${token}` : ''
+            }
+        })
+    },
+    resolvers
 });
+
+cache.writeData({
+    data: {
+        isLoggedIn: !!localStorage.getItem('token'),
+    },
+});
+
 
 ReactDOM.render(
       <ApolloProvider client={client}>

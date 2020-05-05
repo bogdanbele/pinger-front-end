@@ -1,4 +1,4 @@
-import { useMutation } from '@apollo/react-hooks';
+import {useApolloClient, useMutation} from '@apollo/react-hooks';
 import React, { useState } from 'react';
 import gql from 'graphql-tag';
 import ThemeInput from '../../base-components/ThemeInput';
@@ -11,7 +11,11 @@ const LOG_IN = gql`
 	}
 `;
 
+
 export default () => {
+
+	const client = useApolloClient();
+
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 
@@ -27,6 +31,13 @@ export default () => {
 	}
 	if (data) {
 		console.log(data.login);
+		client.resetStore().then(
+			()  => {
+				client.writeData({ data: { isLoggedIn: true } });
+			}
+		);
+
+		localStorage.setItem('token',data.login.token);
 	}
 
 	return (

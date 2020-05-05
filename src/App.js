@@ -14,8 +14,8 @@ const IS_LOGGED_IN = gql`
 
 function IsLoggedIn() {
   const { loading, error, data } = useQuery(IS_LOGGED_IN);
-  if(loading || !data ) return <p>'Loading'</p>
-  if(error) return (error)
+  if( loading || !data ) return <p>'Loading'</p>;
+  if( error ) return error;
   return data.isLoggedIn ? <p>Esti un bepis</p> : <SignIn />;
 }
 

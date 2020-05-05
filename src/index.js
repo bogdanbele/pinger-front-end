@@ -7,7 +7,7 @@ import { ApolloClient } from 'apollo-client';
 import { createHttpLink } from 'apollo-link-http';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { InMemoryCache } from 'apollo-cache-inmemory';
-import {resolvers} from './resolvers/index'
+import {resolvers, typeDefs} from './resolvers/index'
 // 2
 const httpLink = createHttpLink({
     uri: 'http://localhost:4000',
@@ -28,7 +28,8 @@ const client = new ApolloClient({
             }
         })
     },
-    resolvers
+    resolvers,
+    typeDefs
 });
 
 cache.writeData({

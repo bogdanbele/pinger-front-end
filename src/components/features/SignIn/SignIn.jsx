@@ -6,6 +6,7 @@ import ThemeInput from '../../base-components/ThemeInput';
 import Card from "@material-ui/core/Card";
 import styles from './SignIn.module.scss'
 import CardHeader from "@material-ui/core/CardHeader";
+import {Redirect} from "react-router-dom";
 
 const LOG_IN = gql`
     mutation login($username: String!, $password: String!) {
@@ -35,38 +36,36 @@ export default () => {
 	}
 	if (data) {
 		console.log(data.login);
-		client.resetStore().then(
-			() => {
-				client.writeData({data: {isLoggedIn: true}});
-			}
-		);
 
+		client.writeData({data: {isLoggedIn: true}});
 		localStorage.setItem('token', data.login.token);
+		return <Redirect to='/'/>
+
 	}
 
 	return (
-				<Card className={styles.Card}>
-					<CardHeader     title="Notification based events"
-					                subheader="Sign In" />
-				<ThemeInput
-					label="Username"
-					name="username"
-					autoComplete='new-password'
-					value={username}
-					onChange={({target}) => setUsername(target.value)}
-				/>
-				<ThemeInput
-					label="Password"
-					name="password"
-					autoComplete='new-password'
-					value={password}
-					type="password"
-					onChange={({target}) => setPassword(target.value)}
-				/>
+		<Card className={styles.Card}>
+			<CardHeader title="Notification based events"
+			            subheader="Sign In"/>
+			<ThemeInput
+				label="Username"
+				name="username"
+				autoComplete='new-password'
+				value={username}
+				onChange={({target}) => setUsername(target.value)}
+			/>
+			<ThemeInput
+				label="Password"
+				name="password"
+				autoComplete='new-password'
+				value={password}
+				type="password"
+				onChange={({target}) => setPassword(target.value)}
+			/>
 
-				<Button type="button" onClick={() => login()}>
-					click
-				</Button>
+			<Button type="button" onClick={() => login()}>
+				click
+			</Button>
 		</Card>
 	);
 };

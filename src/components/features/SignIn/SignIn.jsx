@@ -39,8 +39,9 @@ export default () => {
 
 		client.writeData({data: {isLoggedIn: true}});
 		localStorage.setItem('token', data.login.token);
-		return <Redirect to='/'/>
-
+		setTimeout(() => {
+			return <Redirect to='/'/>
+		}, 250)
 	}
 
 	return (

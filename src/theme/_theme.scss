@@ -6,7 +6,7 @@ $dark-green-blue: #05386B;
 $deep-blue-bg: #0c0032;
 
 $dark-blue-bg: #282828;
-$light-bg: #E3E3E3;
+$light-bg: #FFF;
 
 $theme-dark: $deep-blue-bg;
 $theme-light: $light-bg;
@@ -36,7 +36,7 @@ body.light {
 
 body{
     --primary: #{darken($color-primary,3%)};
-    --bg: #{darken($theme-light,5%)};
+    --bg: $theme-light;
     --color: #{$font-color-dark};
     --bg-highlight: #{darken($theme-light,6%)};
     --bg-highlight-strong: #{darken($theme-light,4%)};

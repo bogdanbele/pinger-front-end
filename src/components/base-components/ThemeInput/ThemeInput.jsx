@@ -18,7 +18,6 @@ export default function ThemeInput(props) {
 
 ThemeInput.propTypes = {
 	name: PropTypes.string.isRequired,
-	labelName: PropTypes.string,
 	validation: PropTypes.string,
 	validationHelperText: PropTypes.string,
 	value: PropTypes.string,

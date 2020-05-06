@@ -1,7 +1,7 @@
 @import '../../../theme/theme';
 
 .Button {
-	font-weight: 400;
+	font-weight: 300;
 	border-radius: 4px;
 	background-color: transparent;
 	border: 2px solid var(--primary);
@@ -12,8 +12,8 @@
 	letter-spacing: 1.5px;
 	margin-bottom: $grid_2x;
 	margin-top: $grid_2x;
-	max-width: 250px;
-	padding: 0.4rem $grid_3x;
+	max-width: 200px;
+	padding: 0 $grid_3x;
 	text-decoration: none;
 	text-transform: capitalize;
 	user-select: none;

@@ -1,0 +1,45 @@
+$font-family-primary: Quicksand, sans-serif;
+$font-family-secondary: Roboto, sans-serif;
+
+$web-page-width: 960px;
+$dark-green-blue: #05386B;
+$deep-blue-bg: #0c0032;
+
+$dark-blue-bg: #282828;
+$light-bg: #E3E3E3;
+
+$theme-dark: $deep-blue-bg;
+$theme-light: $light-bg;
+
+$font-color-dark: $deep-blue-bg;
+$font-color-light: $light-bg;
+
+
+@import "colors";
+
+@import "dimens";
+
+body {
+    font-family: $font-family-secondary;
+    background-color: var(--bg);
+}
+
+body {
+    --primary: #{$color-primary};
+    --bg: #{darken($theme-dark,4%)};
+    --color: #{$font-color-light};
+    --bg-highlight: #{darken($theme-dark,3%)};
+    --bg-highlight-strong: #{darken($theme-dark,3%)};
+    --theme-images-opacity: 0.3;
+    color: var(--color);
+}
+
+body.dark{
+    --primary: #{darken($color-primary,3%)};
+    --bg: #{darken($theme-light,5%)};
+    --color: #{$font-color-dark};
+    --bg-highlight: #{darken($theme-light,6%)};
+    --bg-highlight-strong: #{darken($theme-light,4%)};
+    --theme-images-opacity: 0.6;
+    color: var(--color);
+}

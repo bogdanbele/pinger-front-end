@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import logo from './logo.svg';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
+import './theme/_theme.scss'
 import SignIn from "./components/features/SignIn";
 import {useQuery} from "@apollo/react-hooks";
 import gql from 'graphql-tag';

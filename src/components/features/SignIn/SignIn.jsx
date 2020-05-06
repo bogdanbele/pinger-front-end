@@ -1,6 +1,7 @@
 import {useApolloClient, useMutation} from '@apollo/react-hooks';
 import React, { useState } from 'react';
 import gql from 'graphql-tag';
+import Button from '../../base-components/Button';
 import ThemeInput from '../../base-components/ThemeInput';
 
 const LOG_IN = gql`
@@ -54,9 +55,9 @@ export default () => {
 				onChange={({target}) => setPassword(target.value)}
 			/>
 
-			<button type="button" onClick={() => login()}>
+			<Button type="button" onClick={() => login()}>
 				click
-			</button>
+			</Button>
 		</div>
 	);
 };

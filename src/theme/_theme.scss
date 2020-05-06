@@ -24,7 +24,7 @@ body {
     background-color: var(--bg);
 }
 
-body {
+body.light {
     --primary: #{$color-primary};
     --bg: #{darken($theme-dark,4%)};
     --color: #{$font-color-light};
@@ -34,7 +34,7 @@ body {
     color: var(--color);
 }
 
-body.dark{
+body{
     --primary: #{darken($color-primary,3%)};
     --bg: #{darken($theme-light,5%)};
     --color: #{$font-color-dark};

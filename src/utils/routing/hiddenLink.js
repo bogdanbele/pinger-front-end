@@ -8,11 +8,11 @@ const IS_LOGGED_IN = gql`
 `;
 
 export const ShowOnAuth = ({children}) => {
-	const {data} = useQuery(IS_LOGGED_IN);
-	return data.isLoggedIn ? children : null
+	const {data : {isLoggedIn}} = useQuery(IS_LOGGED_IN);
+	return isLoggedIn ? children : null
 };
 
 export const HideOnAuth = ({children}) => {
-	const {data} = useQuery(IS_LOGGED_IN);
-	return !data.isLoggedIn ? children : null
+	const {data : {isLoggedIn}} = useQuery(IS_LOGGED_IN);
+	return !isLoggedIn ? children : null
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import SignIn from "../../features/SignIn";
+import SignIn from "../../feature-components/SignIn";
 import {useQuery} from "@apollo/react-hooks";
 import gql from 'graphql-tag';
 
@@ -17,8 +17,7 @@ function IsLoggedIn() {
 }
 
 
-function SignInView() {
-
+const SignInView= () => {
 	return (
 		<div className="App">
 			<header className="App-header">

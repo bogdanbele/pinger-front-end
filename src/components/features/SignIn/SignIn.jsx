@@ -16,14 +16,7 @@ const LOG_IN = gql`
     }
 `;
 
-
-export default () => {
-
-	const client = useApolloClient();
-
-	const [username, setUsername] = useState('');
-	const [password, setPassword] = useState('');
-
+const useLogin = (client, username, password) => {
 	const [login, {loading, error, data}] = useMutation(LOG_IN, {
 		variables: {username, password},
 	});
@@ -43,6 +36,14 @@ export default () => {
 			return <Redirect to='/'/>
 		}, 250)
 	}
+	return login
+};
+
+export default () => {
+	const [username, setUsername] = useState('');
+	const [password, setPassword] = useState('');
+
+	const client = useApolloClient();
 
 	return (
 		<Card className={styles.Card}>
@@ -64,7 +65,7 @@ export default () => {
 				onChange={({target}) => setPassword(target.value)}
 			/>
 
-			<Button type="button" onClick={() => login()}>
+			<Button type="button" onClick={useLogin(client,username,password)}>
 				click
 			</Button>
 		</Card>

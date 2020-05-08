@@ -4,6 +4,7 @@ export const typeDefs = gql`
     scalar Date
 
     type User {
+        _id: ID!
         username: String!
         password: String!
         token: String
@@ -11,6 +12,7 @@ export const typeDefs = gql`
     }
 
     type Event {
+        _id: ID!
         title: String!
         eventCreator: String!
         description: String!

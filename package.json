@@ -14,7 +14,6 @@
     "apollo-link": "^1.2.14",
     "apollo-link-context": "^1.0.20",
     "apollo-link-http": "^1.5.17",
-    "apollo-link-state": "^0.4.2",
     "bootstrap": "^4.4.1",
     "graphql": "^15.0.0",
     "graphql-tag": "latest",

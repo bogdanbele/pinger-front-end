@@ -25,33 +25,32 @@ const formattedDate = (date) => {
 export default () => {
 
 	const {data} = useQuery(FETCH_MY_EVENTS_REMOTE);
-	console.log(data);
 	if (!data) {
 		return null;
-	} else {
-
-		return (
-			<div className="App">
-				<header className="App-header">
-					{data.myEvents.map((event, key) => {
-						console.log(event)
-
-						return (
-							<Card key={key} className='m-4'>
-								<CardHeader
-									title={event.title}
-									subheader={formattedDate(event.createdAt)}/>
-								<CardContent>
-									<Typography variant="body2" color="textSecondary" component="p">
-										{event.description}
-									</Typography>
-								</CardContent>
-							</Card>
-						)
-					})}
-				</header>
-			</div>
-		)
 	}
+
+	return (
+		<div className="App">
+			<header className="App-header">
+				{data.myEvents.map((event, key) => {
+					console.log(event)
+
+					return (
+						<Card key={key} className='m-4'>
+							<CardHeader
+								title={event.title}
+								subheader={formattedDate(event.createdAt)}/>
+							<CardContent>
+								<Typography variant="body2" color="textSecondary" component="p">
+									{event.description}
+								</Typography>
+							</CardContent>
+						</Card>
+					)
+				})}
+			</header>
+		</div>
+	)
 }
+
 ;

@@ -1,11 +1,6 @@
 import {useQuery} from "@apollo/react-hooks";
-import gql from "graphql-tag";
+import {IS_LOGGED_IN} from "../../apollo/queries";
 
-const IS_LOGGED_IN = gql`
-    query IsUserLoggedIn {
-        isLoggedIn @client
-    }
-`;
 
 export const ShowOnAuth = ({children}) => {
 	const {data: {isLoggedIn}} = useQuery(IS_LOGGED_IN);

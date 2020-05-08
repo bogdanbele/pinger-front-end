@@ -1,20 +1,12 @@
 import {useApolloClient, useMutation} from '@apollo/react-hooks';
 import React, {useState} from 'react';
-import gql from 'graphql-tag';
 import Button from '../../base-components/Button';
 import ThemeInput from '../../base-components/ThemeInput';
 import Card from "@material-ui/core/Card";
 import styles from './SignIn.module.scss'
 import CardHeader from "@material-ui/core/CardHeader";
 import {Redirect} from "react-router-dom";
-
-const LOG_IN = gql`
-    mutation login($username: String!, $password: String!) {
-        login(username: $username, password: $password) {
-            token
-        }
-    }
-`;
+import {LOG_IN} from "../../../apollo/mutations";
 
 const useLogin = (client, username, password) => {
 	const [login, {loading, error, data}] = useMutation(LOG_IN, {

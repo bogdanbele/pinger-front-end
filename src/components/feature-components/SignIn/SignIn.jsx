@@ -8,13 +8,13 @@ import CardHeader from "@material-ui/core/CardHeader";
 import {Redirect} from "react-router-dom";
 import {LOG_IN} from "../../../apollo/mutations";
 
-const useLogin = (client, username, password) => {
-	const [login, {loading, error, data}] = useMutation(LOG_IN, {
+/*const useLogin = (client, username, password) => {
+	const [login, {error, loading, data}] = useMutation(LOG_IN, {
 		variables: {username, password},
 	});
+	console.log(error)
 
 	if (loading) return null;
-	if (error) console.log(error);
 	if (data) {
 		console.log(data.login);
 
@@ -24,14 +24,28 @@ const useLogin = (client, username, password) => {
 			return <Redirect to='/'/>
 		}, 250)
 	}
+
 	return login
-};
+};*/
 
 export default () => {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 
 	const client = useApolloClient();
+
+	const [login, {data}] = useMutation(LOG_IN, {
+		variables: {username, password},
+	});
+	if (data) {
+		console.log(data.login);
+
+		client.writeData({data: {isLoggedIn: true}});
+		localStorage.setItem('token', data.login.token);
+		setTimeout(() => {
+			return <Redirect to='/'/>
+		}, 250)
+	}
 
 	return (
 		<Card className={styles.Card}>
@@ -53,7 +67,7 @@ export default () => {
 				onChange={({target}) => setPassword(target.value)}
 			/>
 
-			<Button type="button" onClick={useLogin(client, username, password)}>
+			<Button type="button" onClick={login}>
 				click
 			</Button>
 		</Card>

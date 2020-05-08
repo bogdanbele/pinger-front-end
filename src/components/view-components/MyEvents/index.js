@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import gql from 'graphql-tag';
 import {useQuery} from "@apollo/react-hooks";
 import Card from "@material-ui/core/card";
@@ -9,6 +9,7 @@ import CardHeader from "@material-ui/core/CardHeader";
 const FETCH_MY_EVENTS_REMOTE = gql`
     query myEvents {
         myEvents{
+	        __typename
             title
             description
             createdAt
@@ -25,6 +26,7 @@ const formattedDate = (date) => {
 export default () => {
 
 	const {data} = useQuery(FETCH_MY_EVENTS_REMOTE);
+	console.log(data)
 	if (!data) {
 		return null;
 	}

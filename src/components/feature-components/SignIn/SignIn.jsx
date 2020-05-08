@@ -21,12 +21,8 @@ const useLogin = (client, username, password) => {
 		variables: {username, password},
 	});
 
-	if (loading) {
-		return null;
-	}
-	if (error) {
-		console.log(error)
-	}
+	if (loading) return null;
+	if (error) console.log(error);
 	if (data) {
 		console.log(data.login);
 
@@ -65,7 +61,7 @@ export default () => {
 				onChange={({target}) => setPassword(target.value)}
 			/>
 
-			<Button type="button" onClick={useLogin(client,username,password)}>
+			<Button type="button" onClick={useLogin(client, username, password)}>
 				click
 			</Button>
 		</Card>

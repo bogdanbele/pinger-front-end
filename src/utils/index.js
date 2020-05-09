@@ -1,4 +1,4 @@
-export const formattedDate = (date) => {
+export const formattedDate = date => {
 	let formattedDate = new Date(date);
-	return formattedDate.toLocaleString()
+	return formattedDate.toLocaleString();
 };

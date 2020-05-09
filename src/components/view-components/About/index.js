@@ -1,7 +1,6 @@
 import React from 'react';
 
-const AboutView = () =>
-{
+const AboutView = () => {
 	return (
 		<div className="App">
 			<header className="App-header">

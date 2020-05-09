@@ -1,1 +1,1 @@
-export { default } from './ThemeInput';
+export {default} from './ThemeInput';

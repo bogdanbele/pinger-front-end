@@ -1,10 +1,10 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core';
+import {withStyles} from '@material-ui/core';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 
 export default function ThemeInput(props) {
-	const { value } = props;
+	const {value} = props;
 	return (
 		<ThemeInputStyle
 			/* eslint-disable-next-line react/jsx-props-no-spreading */

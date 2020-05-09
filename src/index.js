@@ -10,13 +10,12 @@ import {ApolloClient} from 'apollo-client';
 import {InMemoryCache} from 'apollo-cache-inmemory';
 import {ApolloLink} from 'apollo-link';
 import {setContext} from 'apollo-link-context';
-import {onError} from "apollo-link-error";
+import {onError} from 'apollo-link-error';
 import {createHttpLink} from 'apollo-link-http';
 
 // Local Apollo Set-up
-import {resolvers} from './apollo/resolvers/index'
-import {typeDefs} from "./apollo/typeDefs";
-import * as serviceWorker from './serviceWorker';
+import {resolvers} from './apollo/resolvers/index';
+import {typeDefs} from './apollo/typeDefs';
 
 const httpLink = createHttpLink({
 	uri: 'http://localhost:4000',
@@ -28,7 +27,7 @@ const cache = new InMemoryCache();
 cache.writeData({
 	data: {
 		isLoggedIn: !!localStorage.getItem('token'),
-	}
+	},
 });
 
 // Add the authorization token to the request's header
@@ -39,21 +38,24 @@ const authLink = setContext((_, {headers}) => {
 	return {
 		headers: {
 			...headers,
-			authorization: token ? `${token}` : "",
-		}
-	}
+			authorization: token ? `${token}` : '',
+		},
+	};
 });
 
 // Global error handling
-const httpLinkWithErrorHandling =
-	onError(({graphQLErrors, networkError}) => {
-		if (graphQLErrors)
+const httpLinkWithErrorHandling
+	= onError(({graphQLErrors, networkError}) => {
+		if (graphQLErrors) {
 			graphQLErrors.forEach(({message, locations, path}) =>
 				console.log(
 					`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`,
 				),
 			);
-		if (networkError) console.log(`[Network error]: ${networkError}`);
+		}
+		if (networkError) {
+			console.log(`[Network error]: ${networkError}`);
+		}
 	});
 
 // Initializing the ApolloClient
@@ -61,7 +63,7 @@ const client = new ApolloClient({
 	cache,
 	link: ApolloLink.from([httpLinkWithErrorHandling, authLink.concat(httpLink)]),
 	resolvers,
-	typeDefs
+	typeDefs,
 });
 
 // Wraps the App with ApolloProvider
@@ -72,8 +74,3 @@ ReactDOM.render(
 	</ApolloProvider>,
 	document.getElementById('root')
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();

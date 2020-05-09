@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './Flex.module.scss';
 
 export default function Flex(props) {
-	const { className, children } = props;
+	const {className, children} = props;
 	return (
 		<div className={`${styles.Flex} ${className ? ` ${className}` : ''}`}>
 			{children}

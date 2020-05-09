@@ -14,7 +14,7 @@ function Row(props) {
 Row.propTypes = {
 	children: PropTypes.node.isRequired,
 	className: PropTypes.string,
-	holderClass: PropTypes.string
+	holderClass: PropTypes.string,
 };
 
 export default Row;

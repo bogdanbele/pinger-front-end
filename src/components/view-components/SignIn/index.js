@@ -1,6 +1,8 @@
 import React from 'react';
 import SignIn from "../../feature-components/authentication/SignIn";
 import {useQuery} from "@apollo/react-hooks";
+
+// Client-side queries
 import {IS_LOGGED_IN} from "../../../apollo/queries";
 
 const IsLoggedIn = () => {

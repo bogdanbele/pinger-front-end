@@ -1,12 +1,12 @@
-import {onError} from "apollo-link-error";
+import {useQuery} from "@apollo/react-hooks";
+import {IS_LOGGED_IN} from "../../../apollo/queries";
 
-export const httpLinkWithErrorHandling =
-	onError(({graphQLErrors, networkError}) => {
-		if (graphQLErrors)
-			graphQLErrors.forEach(({message, locations, path}) =>
-				console.log(
-					`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`,
-				),
-			);
-		if (networkError) console.log(`[Network error]: ${networkError}`);
-	});
+export const ShowOnAuth = ({children}) => {
+	const {data: {isLoggedIn}} = useQuery(IS_LOGGED_IN);
+	return isLoggedIn && children
+};
+
+export const HideOnAuth = ({children}) => {
+	const {data: {isLoggedIn}} = useQuery(IS_LOGGED_IN);
+	return !isLoggedIn && children
+};

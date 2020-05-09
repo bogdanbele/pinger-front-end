@@ -1,17 +1,17 @@
 import React from 'react';
-import SignIn from '../../feature-components/authentication/SignIn';
+import SignUp from '../../feature-components/authentication/SignUp';
 import {IsLoggedInComponent} from "../../feature-components/authentication/helpers";
 
-const SignInView = () => {
+const SignUpView = () => {
   return (
     <div className='App'>
       <header className='App-header'>
         <IsLoggedInComponent>
-          <SignIn/>
+          <SignUp />
         </IsLoggedInComponent>
       </header>
     </div>
   );
 };
 
-export default SignInView;
+export default SignUpView;

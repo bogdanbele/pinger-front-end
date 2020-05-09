@@ -32,7 +32,7 @@ export default () => {
 
   if (data) {
     client.writeData({ data: { isLoggedIn: true } });
-    localStorage.setItem('token', data.login.token);
+    localStorage.setItem('token', data.register.token);
     setTimeout(() => {
       return <Redirect to='/' />;
     }, 250);

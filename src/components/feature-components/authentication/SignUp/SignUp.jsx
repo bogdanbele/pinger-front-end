@@ -8,12 +8,18 @@ import CardHeader from '@material-ui/core/CardHeader';
 import { Redirect } from 'react-router-dom';
 import gql from 'graphql-tag';
 
-const LOG_IN = gql`
-  mutation login($username: String!, $password: String!) {
-    login(username: $username, password: $password) {
+const REGISTER = gql`
+  mutation register($username: String!, $password: String!) {
+    register(username: $username, password: $password) {
       token
     }
   }
+
+  #   mutation login($username: String!, $password: String!) {
+  #     login(username: $username, password: $password) {
+  #       token
+  #     }
+  #   }
 `;
 
 export default () => {
@@ -22,7 +28,8 @@ export default () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const [login, { data }] = useMutation(LOG_IN);
+  const [register, { data }] = useMutation(REGISTER);
+
   if (data) {
     client.writeData({ data: { isLoggedIn: true } });
     localStorage.setItem('token', data.login.token);
@@ -53,7 +60,7 @@ export default () => {
       <Button
         type='button'
         onClick={() =>
-          login({
+          register({
             variables: { username, password },
           })
         }

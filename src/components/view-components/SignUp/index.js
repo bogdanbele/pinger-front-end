@@ -26,4 +26,4 @@ const SignUpView = () => {
   );
 };
 
-export default SignUp;
+export default SignUpView;

@@ -29,6 +29,6 @@ export const typeDefs = gql`
         register(username: String!, password: String!): User
         login(username: String!, password: String!): User
         createEvent(title: String!, description: String!): Event
-        writeMyEvents: [Event]
+        deleteEvent(_id: ID!): String
     }
 `;

@@ -18,7 +18,6 @@ const REGISTER = gql`
 
 export default () => {
 	const client = useApolloClient();
-
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 

@@ -1,6 +1,9 @@
 module.exports ={
     "extends": "react-app",
+    "parser": "babel-eslint",
     "parserOptions": {
+        "sourceType": "module",
+        "allowImportExportEverywhere": true,
         "ecmaVersion": 2016
     },
     "rules": {

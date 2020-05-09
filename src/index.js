@@ -45,18 +45,18 @@ const authLink = setContext((_, {headers}) => {
 
 // Global error handling
 const httpLinkWithErrorHandling
-	= onError(({graphQLErrors, networkError}) => {
-		if (graphQLErrors) {
-			graphQLErrors.forEach(({message, locations, path}) =>
-				console.log(
-					`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`,
-				),
-			);
-		}
-		if (networkError) {
-			console.log(`[Network error]: ${networkError}`);
-		}
-	});
+		= onError(({graphQLErrors, networkError}) => {
+			if (graphQLErrors) {
+				graphQLErrors.forEach(({message, locations, path}) =>
+					console.log(
+						`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`,
+					),
+				);
+			}
+			if (networkError) {
+				console.log(`[Network error]: ${networkError}`);
+			}
+		});
 
 // Initializing the ApolloClient
 const client = new ApolloClient({

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default () => {
+const HomeView = () => {
 	return (
 		<div className="App">
 			<header className="App-header">
@@ -8,5 +8,7 @@ export default () => {
 			</header>
 		</div>
 	);
-}
+};
+
+export default HomeView;
 

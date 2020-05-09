@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import {ApolloClient} from 'apollo-client';
 import {createHttpLink} from 'apollo-link-http';
@@ -10,10 +9,9 @@ import {InMemoryCache} from 'apollo-cache-inmemory';
 import {setContext} from 'apollo-link-context';
 import {resolvers} from './apollo/resolvers/index'
 import {typeDefs} from "./apollo/typeDefs";
-import {onError} from 'apollo-link-error';
 import {ApolloLink} from 'apollo-link';
-import {httpLinkWithErrorHandling} from "./utils/routing";
-// 2
+import {httpLinkWithErrorHandling} from "./components/feature-components/routing";
+
 const httpLink = createHttpLink({
 	uri: 'http://localhost:4000',
 });
@@ -24,10 +22,13 @@ const defaultData = {
 	isLoggedIn: !!localStorage.getItem('token'),
 };
 
+// Initializing the data inside cache
 cache.writeData({
 	data: defaultData
 });
 
+
+// Add the authorization token to the request's header
 const authLink = setContext((_, {headers}) => {
 	// get the authentication token from local storage if it exists
 	const token = localStorage.getItem('token');
@@ -40,7 +41,7 @@ const authLink = setContext((_, {headers}) => {
 	}
 });
 
-// client
+// Initializing the ApolloClient
 const client = new ApolloClient({
 	cache,
 	link: ApolloLink.from([httpLinkWithErrorHandling, authLink.concat(httpLink)]),

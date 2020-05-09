@@ -1,5 +1,5 @@
 import {useQuery} from "@apollo/react-hooks";
-import {IS_LOGGED_IN} from "../../apollo/queries";
+import {IS_LOGGED_IN} from "../../../apollo/queries";
 
 
 export const ShowOnAuth = ({children}) => {

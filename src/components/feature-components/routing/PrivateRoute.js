@@ -1,7 +1,7 @@
 import {Redirect, Route} from "react-router-dom";
 import React from "react";
 import { useQuery} from "@apollo/react-hooks";
-import {IS_LOGGED_IN} from "../../apollo/queries";
+import {IS_LOGGED_IN} from "../../../apollo/queries";
 
 
 export const PrivateRoute = ({component: Component, ...rest}) => {
@@ -11,6 +11,6 @@ export const PrivateRoute = ({component: Component, ...rest}) => {
 		<Route {...rest} render={(props) => (
 			isLoggedIn
 				? <Component {...props}/>
-				: <Redirect to='/login'/>
+				: <Redirect to='/sign-in'/>
 		)}/>)
 };

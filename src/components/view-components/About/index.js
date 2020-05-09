@@ -1,6 +1,7 @@
 import React from 'react';
 
-function About() {
+const AboutView = () =>
+{
 	return (
 		<div className="App">
 			<header className="App-header">
@@ -8,6 +9,6 @@ function About() {
 			</header>
 		</div>
 	);
-}
+};
 
-export default About;
+export default AboutView;

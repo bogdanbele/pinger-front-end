@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Button from '../../../base-components/Button';
 import ThemeInput from '../../../base-components/ThemeInput';
 import Card from '@material-ui/core/Card';
-import styles from './SignUp.module.scss';
+import styles from '.././authentication.module.scss';
 import CardHeader from '@material-ui/core/CardHeader';
 import { Redirect } from 'react-router-dom';
 import gql from 'graphql-tag';
@@ -14,12 +14,6 @@ const REGISTER = gql`
       token
     }
   }
-
-  #   mutation login($username: String!, $password: String!) {
-  #     login(username: $username, password: $password) {
-  #       token
-  #     }
-  #   }
 `;
 
 export default () => {

@@ -1,23 +1,44 @@
 import React, {useState} from 'react';
-import {useApolloClient} from '@apollo/react-hooks';
+import {useApolloClient, useMutation} from '@apollo/react-hooks';
 import Card from '@material-ui/core/Card/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import ThemeInput from '../../../base-components/ThemeInput/ThemeInput';
 import Button from '../../../base-components/Button/Button';
 import {DateTimePicker, MuiPickersUtilsProvider} from '@material-ui/pickers';
 import DateMomentUtil from '@date-io/moment'; // choose your lib
+import gql from 'graphql-tag';
+
+const CREATE_EVENT = gql`
+	mutation createEvent($title: String!, $description: String!, $scheduledAt: Date!){
+		createEvent(title: $title, description: $description, scheduledAt: $scheduledAt){
+			_id
+		}
+	}
+`;
+
+const FETCH_MY_EVENTS = gql`
+    query myEvents {
+        myEvents {
+            _id
+            __typename
+            title
+            description
+            createdAt
+        }
+    }
+`;
 
 
 const SubmitEventForm = () => {
-	const client = useApolloClient();
-	const [username, setUsername] = useState('');
-	const [password, setPassword] = useState('');
+	const [title, setTitle] = useState('');
+	const [description, setDescription] = useState('');
 	const [selectedDate, handleDateChange] = useState(new Date());
+	const [createEvent] = useMutation(CREATE_EVENT,{
+		refetchQueries: [{query: FETCH_MY_EVENTS}],
+		awaitRefetchQueries: true,
+	});
 
-	const moment = new DateMomentUtil();
-	const goodDate = moment.date(selectedDate).valueOf()
-
-	console.log(goodDate)
+	const scheduledAt = new DateMomentUtil().date(selectedDate).valueOf();
 
 	return (
 		<MuiPickersUtilsProvider utils={DateMomentUtil}>
@@ -26,20 +47,27 @@ const SubmitEventForm = () => {
 				<ThemeInput
 					label='Event Name'
 					name='event'
-					value={username}
-					onChange={({target}) => setUsername(target.value)}
+					value={title}
+					onChange={({target}) => setTitle(target.value)}
 				/>
 				<ThemeInput
 					label='Event Description'
 					name='description'
-					value={password}
-					onChange={({target}) => setPassword(target.value)}
+					value={description}
+					onChange={({target}) => setDescription(target.value)}
 				/>
-				<DateTimePicker label='Event date' className='my-4' value={selectedDate} onChange={handleDateChange}/>
+				<DateTimePicker label='Event date' className='my-4' value={scheduledAt} onChange={handleDateChange}/>
 
 				<Button
 					type='button'
 					className='align-self-center'
+					onClick={()=> createEvent({
+						variables: {
+							title,
+							description,
+							scheduledAt,
+						},
+					})}
 				>
 					Create Event
 				</Button>

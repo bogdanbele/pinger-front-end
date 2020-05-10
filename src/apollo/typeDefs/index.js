@@ -17,6 +17,7 @@ export const typeDefs = gql`
         eventCreator: String!
         description: String!
         createdAt: Date!
+        scheduledAt: Date!
     }
 
     type Query {
@@ -28,7 +29,7 @@ export const typeDefs = gql`
     type Mutation {
         register(username: String!, password: String!): User
         login(username: String!, password: String!): User
-        createEvent(title: String!, description: String!): Event
+        createEvent(title: String!, description: String!, scheduledAt: Date!): Event!
         deleteEvent(_id: ID!): String
     }
 `;

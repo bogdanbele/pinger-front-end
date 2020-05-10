@@ -41,5 +41,5 @@ module.exports ={
         "space-in-parens": ["error", "never"],
         "space-infix-ops": "error",
         "template-curly-spacing": ["error", "never"]
-    }
+    },
 }

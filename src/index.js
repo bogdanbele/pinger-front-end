@@ -61,6 +61,7 @@ const httpLinkWithErrorHandling
 // Initializing the ApolloClient
 const client = new ApolloClient({
 	cache,
+	name : 'web-frontend',
 	link: ApolloLink.from([httpLinkWithErrorHandling, authLink.concat(httpLink)]),
 	resolvers,
 	typeDefs,

@@ -22,7 +22,7 @@ const FETCH_MY_EVENTS = gql`
     }
 `;
 
-const EventList = ()=> {
+const EventList = props => {
 	const {data} = useQuery(FETCH_MY_EVENTS);
 
 	const [deleteEvent] = useMutation(DELETE_EVENT, {
@@ -40,15 +40,14 @@ const EventList = ()=> {
 	}).catch(e => console.log(e));
 
 	return (
-		data.myEvents.map((event, key) => {
-			return (
+		<div {...props}>
+			{data.myEvents.map((event, key) =>
 				<EventPreview
 					event={event}
 					key={key}
 					onClick={() => deleteOnClick(event._id)}
-				/>
-			);
-		})
+				/>)}
+		</div>
 	);
 };
 

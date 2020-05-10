@@ -19,6 +19,9 @@ $font-color-light: $light-bg;
 
 @import "dimens";
 
+@import "scss_defaults/box_shadow";
+@import "scss_defaults/screen_sizes";
+
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

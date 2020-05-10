@@ -8,7 +8,7 @@ import {Button} from '@material-ui/core';
 
 const EventPreview = ({event, onClick}) => {
 	return (
-		<Card className="m-4">
+		<Card className="m-5 p-3">
 			<CardHeader title={event.title} subheader={formattedDate(event.createdAt)} />
 			<CardContent>
 				<Typography variant="body2" color="textSecondary" component="p">

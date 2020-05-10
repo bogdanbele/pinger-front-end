@@ -24,6 +24,7 @@ const FETCH_MY_EVENTS = gql`
             title
             description
             createdAt
+	        scheduledAt
         }
     }
 `;

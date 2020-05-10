@@ -17,7 +17,7 @@ export const typeDefs = gql`
         eventCreator: String!
         description: String!
         createdAt: Date!
-        scheduledAt: Date!
+        scheduledAt: Date
     }
 
     type Query {

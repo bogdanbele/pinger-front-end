@@ -10,15 +10,20 @@ const EventPreview = ({event, onClick}) => {
 	console.log(event)
 	return (
 		<Card className="m-5 p-3">
-			<CardHeader title={event.title} subheader={formattedDate(event.scheduledAt)} />
+			<CardHeader
+				title={event.title}
+				subheader={formattedDate(event.scheduledAt)}/>
 			<CardContent>
-				<Typography variant="body2" color="textSecondary" component="p">
+				<Typography
+					variant="body2"
+					color="textSecondary"
+					component="p">
 					{event.description}
 				</Typography>
 				<Button
 					onClick={onClick}
 				>
-                    Click
+					Click
 				</Button>
 
 			</CardContent>

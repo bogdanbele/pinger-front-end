@@ -1,3 +1,4 @@
+import gql from 'graphql-tag';
 import {useApolloClient, useMutation} from '@apollo/react-hooks';
 import React, {useState} from 'react';
 import Button from '../../../base-components/Button';
@@ -6,7 +7,6 @@ import Card from '@material-ui/core/Card';
 import styles from '.././authentication.module.scss';
 import CardHeader from '@material-ui/core/CardHeader';
 import {Redirect} from 'react-router-dom';
-import gql from 'graphql-tag';
 
 const REGISTER = gql`
   mutation register($username: String!, $password: String!) {

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {useApolloClient, useMutation} from '@apollo/react-hooks';
+import {useMutation} from '@apollo/react-hooks';
 import Card from '@material-ui/core/Card/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import ThemeInput from '../../../base-components/ThemeInput/ThemeInput';
@@ -9,11 +9,17 @@ import DateMomentUtil from '@date-io/moment'; // choose your lib
 import gql from 'graphql-tag';
 
 const CREATE_EVENT = gql`
-	mutation createEvent($title: String!, $description: String!, $scheduledAt: Date!){
-		createEvent(title: $title, description: $description, scheduledAt: $scheduledAt){
-			_id
-		}
-	}
+    mutation createEvent(
+        $title: String!,
+        $description: String!,
+        $scheduledAt: Date!){
+        	createEvent(
+            	title: $title,
+            	description: $description,
+            	scheduledAt: $scheduledAt){
+            	_id
+        }
+    }
 `;
 
 const FETCH_MY_EVENTS = gql`
@@ -24,7 +30,7 @@ const FETCH_MY_EVENTS = gql`
             title
             description
             createdAt
-	        scheduledAt
+            scheduledAt
         }
     }
 `;
@@ -34,7 +40,7 @@ const SubmitEventForm = () => {
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
 	const [selectedDate, handleDateChange] = useState(new Date());
-	const [createEvent] = useMutation(CREATE_EVENT,{
+	const [createEvent] = useMutation(CREATE_EVENT, {
 		refetchQueries: [{query: FETCH_MY_EVENTS}],
 		awaitRefetchQueries: true,
 	});
@@ -62,7 +68,7 @@ const SubmitEventForm = () => {
 				<Button
 					type='button'
 					className='align-self-center'
-					onClick={()=> createEvent({
+					onClick={() => createEvent({
 						variables: {
 							title,
 							description,

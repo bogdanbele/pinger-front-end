@@ -23,7 +23,7 @@ module.exports ={
             "before": true
         }],
         "max-len": ["error", {
-            "code": 100,
+            "code": 80,
             "ignoreStrings": true,
             "ignoreTemplateLiterals": true,
             "ignoreUrls": true,
@@ -42,4 +42,7 @@ module.exports ={
         "space-infix-ops": "error",
         "template-curly-spacing": ["error", "never"]
     },
+    plugins: [
+        'graphql'
+    ]
 }

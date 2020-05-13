@@ -16,6 +16,7 @@ import AboutView from './view-components/About';
 import {HashRouter, NavLink, Route} from 'react-router-dom';
 import {HideOnAuth, ShowOnAuth} from './feature-components/routing/';
 import {PrivateRoute} from './feature-components/routing/PrivateRoute';
+import SearchView from './view-components/Search';
 
 const App = () => {
 	return (
@@ -28,6 +29,9 @@ const App = () => {
 					<ShowOnAuth>
 						<li>
 							<NavLink to='/my-events'>My Events</NavLink>
+						</li>
+						<li>
+							<NavLink to='/search'>Search</NavLink>
 						</li>
 					</ShowOnAuth>
 					<HideOnAuth>
@@ -48,6 +52,7 @@ const App = () => {
 					<Route path='/sign-in' component={SignInView} />
 					<Route path='/sign-up' component={SignUpView} />
 					<PrivateRoute path='/about' component={AboutView} />
+					<PrivateRoute path='/search' component={SearchView} />
 				</div>
 			</div>
 		</HashRouter>

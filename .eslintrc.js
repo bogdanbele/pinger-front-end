@@ -42,7 +42,4 @@ module.exports ={
         "space-infix-ops": "error",
         "template-curly-spacing": ["error", "never"]
     },
-    plugins: [
-        'graphql'
-    ]
-}
+};

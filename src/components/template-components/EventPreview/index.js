@@ -7,7 +7,7 @@ import {formattedDate} from '../../../utils';
 import {Button} from '@material-ui/core';
 
 const EventPreview = ({event, onClick}) => {
-	console.log(event)
+	console.log(event);
 	return (
 		<Card className="m-5 p-3">
 			<CardHeader
@@ -20,9 +20,7 @@ const EventPreview = ({event, onClick}) => {
 					component="p">
 					{event.description}
 				</Typography>
-				<Button
-					onClick={onClick}
-				>
+				<Button onClick={onClick}>
 					Click
 				</Button>
 

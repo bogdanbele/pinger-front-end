@@ -24,6 +24,7 @@ export const typeDefs = gql`
         isLoggedIn: Boolean!
         me: User
         myEvents: [Event]
+        getUsers(searchTerm: String!): [User]
     }
 
     type Mutation {

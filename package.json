@@ -19,6 +19,7 @@
     "bootstrap": "^4.4.1",
     "graphql": "^15.0.0",
     "graphql-tag": "latest",
+    "lodash": "^4.17.15",
     "moment": "^2.25.3",
     "node-sass": "^4.14.0",
     "react": "^16.13.1",

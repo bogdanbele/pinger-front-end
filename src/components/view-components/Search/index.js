@@ -1,20 +1,21 @@
-import React, {useState} from 'react';
+import React, {useCallback, useMemo, useState} from 'react';
 import CardHeader from '@material-ui/core/CardHeader';
 import ThemeInput from '../../base-components/ThemeInput/ThemeInput';
 import Button from '../../base-components/Button/Button';
 import Card from '@material-ui/core/Card/Card';
 import gql from 'graphql-tag';
 import {useLazyQuery} from '@apollo/react-hooks';
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import List from "@material-ui/core/List";
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import List from '@material-ui/core/List';
+import _ from 'lodash';
 
 const SEARCH_USERS = gql`
-	query getUsers($searchTerm: String!){
-		getUsers(searchTerm: $searchTerm){
-			username
-		}
-	}
+    query getUsers($searchTerm: String!){
+        getUsers(searchTerm: $searchTerm){
+            username
+        }
+    }
 `;
 
 const UsersList = users => {
@@ -22,10 +23,14 @@ const UsersList = users => {
 	console.log(users.length === 0);
 
 	if (users.length === 0) {
-		return <p>No results</p>;
+		return <ListItem>
+			<ListItemText
+				primary='No results'
+			/>
+		</ListItem>;
 	}
 
-	const userList =  users.map((elem, index) =>
+	const userList = users.map((elem, index) =>
 		<ListItem button key={index}>
 			<ListItemText
 				primary={elem.username}
@@ -44,6 +49,10 @@ const SearchView = () => {
 		console.log(data);
 	}
 
+	useMemo(()=>
+		console.log('hej')
+	, [searchTerm]);
+
 	return (
 		<div className="App">
 			<header className="App-header">
@@ -59,7 +68,7 @@ const SearchView = () => {
 						onChange={({target}) => setSearchTerm(target.value)}
 					/>
 					<div>
-					{ data && UsersList(data.getUsers)}
+						{data && UsersList(data.getUsers)}
 					</div>
 					<Button
 						type='button'

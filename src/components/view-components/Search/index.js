@@ -1,4 +1,4 @@
-import React, {useCallback, useMemo, useState} from 'react';
+import React from 'react';
 import CardHeader from '@material-ui/core/CardHeader';
 import ThemeInput from '../../base-components/ThemeInput/ThemeInput';
 import Button from '../../base-components/Button/Button';
@@ -8,7 +8,8 @@ import {useLazyQuery} from '@apollo/react-hooks';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import List from '@material-ui/core/List';
-import _ from 'lodash';
+import {useDebouncedCallback} from 'use-debounce';
+
 
 const SEARCH_USERS = gql`
     query getUsers($searchTerm: String!){
@@ -40,18 +41,30 @@ const UsersList = users => {
 	return <List>{userList}</List>;
 };
 
+const Loading = () => {
+	return <ListItem>
+		<ListItemText
+			primary='Loading ...'
+		/>
+	</ListItem>;
+};
+
 
 const SearchView = () => {
 
-	const [searchTerm, setSearchTerm] = useState('');
-	const [getUsers, {data}] = useLazyQuery(SEARCH_USERS);
+	const [getUsers, {data, loading}] = useLazyQuery(SEARCH_USERS);
 	if (data) {
 		console.log(data);
 	}
 
-	useMemo(()=>
-		console.log('hej')
-	, [searchTerm]);
+	const [debouncedCallback] = useDebouncedCallback(
+		// function
+		value => getUsers({
+			variables: {searchTerm : value},
+		}),
+		// delay in ms
+		500
+	);
 
 	return (
 		<div className="App">
@@ -63,19 +76,18 @@ const SearchView = () => {
 					<CardHeader title='Search for something' subheader='No drama'/>
 					<ThemeInput
 						label='Event Description'
-						name='description'
-						value={searchTerm}
-						onChange={({target}) => setSearchTerm(target.value)}
+						name='searchTerm'
+						autoComplete='new-password'
+						onChange={({target}) => debouncedCallback(target.value)}
 					/>
 					<div>
+						{loading && <Loading/>}
 						{data && UsersList(data.getUsers)}
 					</div>
 					<Button
 						type='button'
 						className='align-self-center'
-						onClick={() => getUsers({
-							variables: {searchTerm},
-						})}
+						onClick={debouncedCallback}
 					>
 						Search
 					</Button>

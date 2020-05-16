@@ -4,14 +4,12 @@ import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 
 export default function ThemeInput(props) {
-	const {value} = props;
 	return (
 		<ThemeInputStyle
 			/* eslint-disable-next-line react/jsx-props-no-spreading */
 			{...props}
 			variant="outlined"
 			margin="normal"
-			value={value || ''}
 		/>
 	);
 }

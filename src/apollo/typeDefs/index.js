@@ -3,6 +3,12 @@ import gql from 'graphql-tag';
 export const typeDefs = gql`
     scalar Date
 
+    type UsersResult {
+        users: [User]
+        currentPage: Int
+        totalPages: Int
+    }
+    
     type User {
         _id: ID!
         username: String!
@@ -24,7 +30,7 @@ export const typeDefs = gql`
         isLoggedIn: Boolean!
         me: User
         myEvents: [Event]
-        getUsers(searchTerm: String!): [User]
+        getUsers(searchTerm: String, page: Int, limit: Int): UsersResult
     }
 
     type Mutation {

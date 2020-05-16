@@ -12,9 +12,13 @@ import {useDebouncedCallback} from 'use-debounce';
 
 
 const SEARCH_USERS = gql`
-    query getUsers($searchTerm: String!){
-        getUsers(searchTerm: $searchTerm){
-            username
+    query getUsers($searchTerm: String!, $page: Int, $limit: Int){
+        getUsers(searchTerm: $searchTerm, page: $page, limit: $limit){
+            users{
+                username
+            }
+            totalPages
+            currentPage
         }
     }
 `;
@@ -82,7 +86,7 @@ const SearchView = () => {
 					/>
 					<div>
 						{loading && <Loading/>}
-						{data && UsersList(data.getUsers)}
+						{data && UsersList(data.getUsers.users)}
 					</div>
 					<Button
 						type='button'

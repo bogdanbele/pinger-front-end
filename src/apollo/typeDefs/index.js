@@ -8,7 +8,18 @@ export const typeDefs = gql`
         currentPage: Int
         totalPages: Int
     }
-    
+
+    type UserStatusResult {
+        users : [UserStatus]
+        currentPage: Int
+        totalPages: Int
+    }
+
+    type UserStatus {
+        user: User!
+        status: Int
+    }
+
     type User {
         _id: ID!
         username: String!
@@ -31,6 +42,7 @@ export const typeDefs = gql`
         me: User
         myEvents: [Event]
         getUsers(searchTerm: String, page: Int, limit: Int): UsersResult
+        getUsersWithStatus(searchTerm: String, page: Int, limit: Int): UserStatusResult
     }
 
     type Mutation {

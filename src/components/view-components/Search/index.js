@@ -12,10 +12,13 @@ import {useDebouncedCallback} from 'use-debounce';
 
 
 const SEARCH_USERS = gql`
-    query getUsers($searchTerm: String!, $page: Int, $limit: Int){
-        getUsers(searchTerm: $searchTerm, page: $page, limit: $limit){
+    query getUsersWithStatus($searchTerm: String!, $page: Int, $limit: Int){
+        getUsersWithStatus(searchTerm: $searchTerm, page: $page, limit: $limit){
             users{
-                username
+                user {
+	                username
+                }
+	            status
             }
             totalPages
             currentPage
@@ -38,8 +41,9 @@ const UsersList = users => {
 	const userList = users.map((elem, index) =>
 		<ListItem button key={index}>
 			<ListItemText
-				primary={elem.username}
+				primary={elem.user.username}
 			/>
+			<p>{elem.status}</p>
 		</ListItem>,
 	);
 	return <List>{userList}</List>;
@@ -86,15 +90,8 @@ const SearchView = () => {
 					/>
 					<div>
 						{loading && <Loading/>}
-						{data && UsersList(data.getUsers.users)}
+						{data && UsersList(data.getUsersWithStatus.users)}
 					</div>
-					<Button
-						type='button'
-						className='align-self-center'
-						onClick={debouncedCallback}
-					>
-						Search
-					</Button>
 				</Card>
 			</header>
 		</div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import CardHeader from '@material-ui/core/CardHeader';
 import ThemeInput from '../../base-components/ThemeInput/ThemeInput';
 import Button from '../../base-components/Button/Button';
@@ -18,9 +18,9 @@ const SEARCH_USERS = gql`
         getUsersWithStatus(searchTerm: $searchTerm, page: $page, limit: $limit){
             users{
                 user {
-	                username
+                    username
                 }
-	            status
+                status
             }
             totalPages
             currentPage
@@ -28,7 +28,7 @@ const SEARCH_USERS = gql`
     }
 `;
 
-const UsersList = (users, client) => {
+const UsersList = (users, client, setUser) => {
 
 	console.log(users);
 	console.log(users.length === 0);
@@ -45,8 +45,13 @@ const UsersList = (users, client) => {
 		<ListItem button
 		          key={index}
 		          className='flex-row'
-		          onClick={() =>
-			          client.writeData({data: {isNotificationModalOpen: true}})
+		          onClick={() => {
+			          client.writeData({
+				          data: {isNotificationModalOpen: true},
+			          });
+			          setUser(elem)
+			          ;
+		          }
 		          }>
 			<ListItemText
 				primary={elem.user.username}
@@ -71,6 +76,8 @@ const SearchView = () => {
 
 	const client = useApolloClient();
 
+	const [currentUser, setCurrentUser] = useState(null);
+
 	const [getUsers, {data, loading}] = useLazyQuery(SEARCH_USERS);
 	if (data) {
 		console.log(data);
@@ -79,11 +86,13 @@ const SearchView = () => {
 	const [debouncedCallback] = useDebouncedCallback(
 		// function
 		value => getUsers({
-			variables: {searchTerm : value},
+			variables: {searchTerm: value},
 		}),
 		// delay in ms
 		500
 	);
+
+	console.log(currentUser)
 
 	return (
 		<div className="App">
@@ -96,7 +105,7 @@ const SearchView = () => {
 						variant="body2"
 						color="textSecondary"
 						component="p">
-						He might be a great guy!
+						{currentUser ? currentUser.user.username : 'sorry'}
 					</Typography>
 					<Button onClick={() => console.log('click')}>
 						Click
@@ -113,7 +122,7 @@ const SearchView = () => {
 					/>
 					<div>
 						{loading && <Loading/>}
-						{data && UsersList(data.getUsersWithStatus.users, client)}
+						{data && UsersList(data.getUsersWithStatus.users, client, setCurrentUser)}
 					</div>
 				</Card>
 			</header>

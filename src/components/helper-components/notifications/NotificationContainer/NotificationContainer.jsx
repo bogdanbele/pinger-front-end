@@ -3,7 +3,7 @@ import {createPortal} from 'react-dom';
 import Card from '@material-ui/core/Card/Card';
 import {useApolloClient, useQuery} from '@apollo/react-hooks';
 import styles from './NotificationContainer.module.scss';
-import {IS_NOTIFICATION_MODAL_OPEN} from '../../../apollo/queries';
+import {IS_NOTIFICATION_MODAL_OPEN} from '../../../../apollo/queries';
 
 const NotificationContainer = props => {
 	const client = useApolloClient();

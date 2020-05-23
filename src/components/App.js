@@ -14,8 +14,8 @@ import AboutView from './view-components/About';
 
 // Routing
 import {HashRouter, NavLink, Route} from 'react-router-dom';
-import {HideOnAuth, ShowOnAuth} from './feature-components/routing/';
-import {PrivateRoute} from './feature-components/routing/PrivateRoute';
+import {HideOnAuth, ShowOnAuth} from './helper-components/routing/';
+import {PrivateRoute} from './helper-components/routing/PrivateRoute';
 import SearchView from './view-components/Search';
 
 const App = () => {

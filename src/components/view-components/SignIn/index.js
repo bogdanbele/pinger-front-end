@@ -1,5 +1,5 @@
 import React from 'react';
-import SignIn from '../../feature-components/authentication/SignIn';
+import SignInForm from '../../feature-components/authentication/SignInForm';
 import {IsLoggedInComponent} from '../../feature-components/authentication/helpers';
 
 const SignInView = () => {
@@ -7,7 +7,7 @@ const SignInView = () => {
 		<div className='App'>
 			<header className='App-header'>
 				<IsLoggedInComponent>
-					<SignIn/>
+					<SignInForm/>
 				</IsLoggedInComponent>
 			</header>
 		</div>

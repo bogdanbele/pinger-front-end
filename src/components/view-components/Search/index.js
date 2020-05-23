@@ -9,7 +9,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import List from '@material-ui/core/List';
 import {useDebouncedCallback} from 'use-debounce';
-import NotificationContainer from '../../feature-components/notifications';
+import NotificationContainer from '../../helper-components/notifications/NotificationContainer';
 import Typography from '@material-ui/core/Typography';
 
 
@@ -79,9 +79,6 @@ const SearchView = () => {
 	const [currentUser, setCurrentUser] = useState(null);
 
 	const [getUsers, {data, loading}] = useLazyQuery(SEARCH_USERS);
-	if (data) {
-		console.log(data);
-	}
 
 	const [debouncedCallback] = useDebouncedCallback(
 		// function

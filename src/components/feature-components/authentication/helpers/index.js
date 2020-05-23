@@ -11,7 +11,7 @@ export const IsLoggedInComponent = ({children}) => {
 		return error;
 	}
 	return data.isLoggedIn 
-		? <p>You are part of the gang. Grab a hat you dufus</p>
+		? <p>You are already logged in!</p>
 	 : 		children
 	;
 };

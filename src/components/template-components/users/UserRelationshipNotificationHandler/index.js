@@ -1,8 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import CardHeader from '@material-ui/core/CardHeader';
 import Typography from '@material-ui/core/Typography';
 import Button from '../../../base-components/Button/Button';
-import NotificationContainer from '../../../helper-components/notifications/NotificationContainer';
 import {USER_STATUS_TYPE} from '../utils';
 
 // Switch
@@ -22,18 +21,21 @@ const TemplateSwitch = ({user,status}) => {
 
 // Templates
 const RequestFriendNotification = ({user}) => {
+	if (!user) {
+		return null;
+	}
 	return (
 		<React.Fragment>
 			<CardHeader
-				title='Add this guy to your friends?'/>
+				title={user.username}/>
 			<Typography
 				variant="body2"
 				color="textSecondary"
 				component="p">
-				{user && user.username}
+				{`Add ${user.username} to your friends list?`}
 			</Typography>
 			<Button onClick={() => console.log('click')}>
-				Click
+				Add
 			</Button>
 		</React.Fragment>
 	);

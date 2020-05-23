@@ -1,16 +1,14 @@
 import React, {useState} from 'react';
 import CardHeader from '@material-ui/core/CardHeader';
 import ThemeInput from '../../base-components/ThemeInput/ThemeInput';
-import Button from '../../base-components/Button/Button';
 import Card from '@material-ui/core/Card/Card';
 import gql from 'graphql-tag';
 import {useApolloClient, useLazyQuery} from '@apollo/react-hooks';
 import {useDebouncedCallback} from 'use-debounce';
 import NotificationContainer from '../../helper-components/notifications/NotificationContainer';
-import Typography from '@material-ui/core/Typography';
 import {ListItemLoading} from '../../helper-components/loading/ListItemLoading';
 import {UsersList} from '../../template-components/users/UserList';
-import {UserRelationshipNotificationHandler} from "../../template-components/users/UserRelationshipNotificationHandler";
+import {UserRelationshipNotificationHandler} from '../../template-components/users/UserRelationshipNotificationHandler';
 
 
 const SEARCH_USERS = gql`
@@ -38,7 +36,7 @@ const SearchView = () => {
 
 	const [getUsers, {data, loading}] = useLazyQuery(SEARCH_USERS);
 
-	console.log(data)
+	console.log(data);
 
 	const [debouncedCallback] = useDebouncedCallback(
 		// function

@@ -4,11 +4,13 @@ import ThemeInput from '../../base-components/ThemeInput/ThemeInput';
 import Button from '../../base-components/Button/Button';
 import Card from '@material-ui/core/Card/Card';
 import gql from 'graphql-tag';
-import {useLazyQuery} from '@apollo/react-hooks';
+import {useApolloClient, useLazyQuery} from '@apollo/react-hooks';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import List from '@material-ui/core/List';
 import {useDebouncedCallback} from 'use-debounce';
+import NotificationContainer from '../../feature-components/notifications';
+import Typography from '@material-ui/core/Typography';
 
 
 const SEARCH_USERS = gql`
@@ -26,7 +28,8 @@ const SEARCH_USERS = gql`
     }
 `;
 
-const UsersList = users => {
+const UsersList = (users, client) => {
+
 	console.log(users);
 	console.log(users.length === 0);
 
@@ -39,11 +42,17 @@ const UsersList = users => {
 	}
 
 	const userList = users.map((elem, index) =>
-		<ListItem button key={index}>
+		<ListItem button
+		          key={index}
+		          className='flex-row'
+		          onClick={() =>
+			          client.writeData({data: {isNotificationModalOpen: true}})
+		          }>
 			<ListItemText
 				primary={elem.user.username}
+
 			/>
-			<p>{elem.status}</p>
+			<span>{elem.status}</span>
 		</ListItem>,
 	);
 	return <List>{userList}</List>;
@@ -59,6 +68,8 @@ const Loading = () => {
 
 
 const SearchView = () => {
+
+	const client = useApolloClient();
 
 	const [getUsers, {data, loading}] = useLazyQuery(SEARCH_USERS);
 	if (data) {
@@ -78,7 +89,19 @@ const SearchView = () => {
 		<div className="App">
 			<header className="App-header">
 				<h1 className="my-5">Search</h1>
-
+				<NotificationContainer>
+					<CardHeader
+						title='Add this guy to your friends?'/>
+					<Typography
+						variant="body2"
+						color="textSecondary"
+						component="p">
+						He might be a great guy!
+					</Typography>
+					<Button onClick={() => console.log('click')}>
+						Click
+					</Button>
+				</NotificationContainer>
 
 				<Card className='d-flex flex-column p-4'>
 					<CardHeader title='Search for something' subheader='No drama'/>
@@ -90,7 +113,7 @@ const SearchView = () => {
 					/>
 					<div>
 						{loading && <Loading/>}
-						{data && UsersList(data.getUsersWithStatus.users)}
+						{data && UsersList(data.getUsersWithStatus.users, client)}
 					</div>
 				</Card>
 			</header>

@@ -39,6 +39,7 @@ export const typeDefs = gql`
 
     type Query {
         isLoggedIn: Boolean!
+        isNotificationModalOpen: Boolean!
         me: User
         myEvents: [Event]
         getUsers(searchTerm: String, page: Int, limit: Int): UsersResult

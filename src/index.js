@@ -27,6 +27,7 @@ const cache = new InMemoryCache();
 cache.writeData({
 	data: {
 		isLoggedIn: !!localStorage.getItem('token'),
+		isNotificationModalOpen : false,
 	},
 });
 

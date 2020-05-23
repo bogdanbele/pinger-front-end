@@ -10,6 +10,7 @@ import NotificationContainer from '../../helper-components/notifications/Notific
 import Typography from '@material-ui/core/Typography';
 import {ListItemLoading} from '../../helper-components/loading/ListItemLoading';
 import {UsersList} from '../../template-components/users/UserList';
+import {UserRelationshipNotificationHandler} from "../../template-components/users/UserRelationshipNotificationHandler";
 
 
 const SEARCH_USERS = gql`
@@ -55,17 +56,8 @@ const SearchView = () => {
 			<header className="App-header">
 				<h1 className="my-5">Search</h1>
 				<NotificationContainer>
-					<CardHeader
-						title='Add this guy to your friends?'/>
-					<Typography
-						variant="body2"
-						color="textSecondary"
-						component="p">
-						{currentUser ? currentUser.user.username : 'sorry'}
-					</Typography>
-					<Button onClick={() => console.log('click')}>
-						Click
-					</Button>
+					<UserRelationshipNotificationHandler
+						currentUser={currentUser}/>
 				</NotificationContainer>
 
 				<Card className='d-flex flex-column p-4'>

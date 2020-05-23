@@ -5,12 +5,11 @@ import Button from '../../base-components/Button/Button';
 import Card from '@material-ui/core/Card/Card';
 import gql from 'graphql-tag';
 import {useApolloClient, useLazyQuery} from '@apollo/react-hooks';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import List from '@material-ui/core/List';
 import {useDebouncedCallback} from 'use-debounce';
 import NotificationContainer from '../../helper-components/notifications/NotificationContainer';
 import Typography from '@material-ui/core/Typography';
+import {ListItemLoading} from '../../helper-components/loading/ListItemLoading';
+import {UsersList} from '../../template-components/users/UserList';
 
 
 const SEARCH_USERS = gql`
@@ -18,6 +17,7 @@ const SEARCH_USERS = gql`
         getUsersWithStatus(searchTerm: $searchTerm, page: $page, limit: $limit){
             users{
                 user {
+	                _id
                     username
                 }
                 status
@@ -28,49 +28,6 @@ const SEARCH_USERS = gql`
     }
 `;
 
-const UsersList = (users, client, setUser) => {
-
-	console.log(users);
-	console.log(users.length === 0);
-
-	if (users.length === 0) {
-		return <ListItem>
-			<ListItemText
-				primary='No results'
-			/>
-		</ListItem>;
-	}
-
-	const userList = users.map((elem, index) =>
-		<ListItem button
-		          key={index}
-		          className='flex-row'
-		          onClick={() => {
-			          client.writeData({
-				          data: {isNotificationModalOpen: true},
-			          });
-			          setUser(elem)
-			          ;
-		          }
-		          }>
-			<ListItemText
-				primary={elem.user.username}
-
-			/>
-			<span>{elem.status}</span>
-		</ListItem>,
-	);
-	return <List>{userList}</List>;
-};
-
-const Loading = () => {
-	return <ListItem>
-		<ListItemText
-			primary='Loading ...'
-		/>
-	</ListItem>;
-};
-
 
 const SearchView = () => {
 
@@ -79,6 +36,8 @@ const SearchView = () => {
 	const [currentUser, setCurrentUser] = useState(null);
 
 	const [getUsers, {data, loading}] = useLazyQuery(SEARCH_USERS);
+
+	console.log(data)
 
 	const [debouncedCallback] = useDebouncedCallback(
 		// function
@@ -89,7 +48,7 @@ const SearchView = () => {
 		500
 	);
 
-	console.log(currentUser)
+	console.log(currentUser);
 
 	return (
 		<div className="App">
@@ -118,8 +77,13 @@ const SearchView = () => {
 						onChange={({target}) => debouncedCallback(target.value)}
 					/>
 					<div>
-						{loading && <Loading/>}
-						{data && UsersList(data.getUsersWithStatus.users, client, setCurrentUser)}
+						{loading && <ListItemLoading/>}
+						{data
+						&& <UsersList
+							users={data.getUsersWithStatus.users}
+							client={client}
+							userOnClickCallback={setCurrentUser}/>
+						}
 					</div>
 				</Card>
 			</header>

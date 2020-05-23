@@ -3,7 +3,7 @@ import Card from '@material-ui/core/card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import CardHeader from '@material-ui/core/CardHeader';
-import {formattedDate} from '../../../utils';
+import {formattedDate} from '../../../../utils';
 import {Button} from '@material-ui/core';
 
 const EventPreview = ({event, onClick}) => {

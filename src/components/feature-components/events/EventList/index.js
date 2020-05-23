@@ -1,4 +1,4 @@
-import EventPreview from '../../../template-components/EventPreview';
+import EventPreview from '../../../template-components/events/EventPreview';
 import React from 'react';
 import {useMutation, useQuery} from '@apollo/react-hooks';
 import gql from 'graphql-tag';

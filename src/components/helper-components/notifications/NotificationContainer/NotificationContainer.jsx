@@ -22,7 +22,7 @@ const NotificationContainer = props => {
 			className={styles.NotificationContainer}
 			onClick={closeNotificationModal}>
 			<Card
-				className='d-flex flex-column p-4'
+				className='d-flex flex-column p-3 align-items-center'
 				onClick={e => {
 					e.stopPropagation();
 				}}

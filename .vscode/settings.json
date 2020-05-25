@@ -1,5 +1,24 @@
 {
     "cSpell.words": [
         "refetch"
-    ]
+    ],
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#93dbe2",
+        "activityBar.activeBorder": "#d04fc4",
+        "activityBar.background": "#93dbe2",
+        "activityBar.foreground": "#15202b",
+        "activityBar.inactiveForeground": "#15202b99",
+        "activityBarBadge.background": "#d04fc4",
+        "activityBarBadge.foreground": "#15202b",
+        "statusBar.background": "#6bced7",
+        "statusBar.border": "#6bced7",
+        "statusBar.foreground": "#15202b",
+        "statusBarItem.hoverBackground": "#43c1cc",
+        "titleBar.activeBackground": "#6bced7",
+        "titleBar.activeForeground": "#15202b",
+        "titleBar.border": "#6bced7",
+        "titleBar.inactiveBackground": "#6bced799",
+        "titleBar.inactiveForeground": "#15202b99"
+    },
+    "peacock.color": "#6bced7"
 }

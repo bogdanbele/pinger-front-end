@@ -59,9 +59,9 @@ const SearchView = () => {
 				</NotificationContainer>
 
 				<Card className='d-flex flex-column p-4'>
-					<CardHeader title='Search for something' subheader='No drama'/>
+					<CardHeader title='Search for a user'/>
 					<ThemeInput
-						label='Event Description'
+						label='Username'
 						name='searchTerm'
 						autoComplete='new-password'
 						onChange={({target}) => debouncedCallback(target.value)}

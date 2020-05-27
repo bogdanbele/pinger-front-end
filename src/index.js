@@ -15,7 +15,6 @@ import {createHttpLink} from 'apollo-link-http';
 
 // Local Apollo Set-up
 import {resolvers} from './apollo/resolvers/index';
-import {typeDefs} from './apollo/typeDefs';
 
 const httpLink = createHttpLink({
 	uri: 'http://localhost:4000',
@@ -65,7 +64,6 @@ const client = new ApolloClient({
 	name : 'web-frontend',
 	link: ApolloLink.from([httpLinkWithErrorHandling, authLink.concat(httpLink)]),
 	resolvers,
-	typeDefs,
 });
 
 // Wraps the App with ApolloProvider

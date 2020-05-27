@@ -1,0 +1,85 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Event {
+    _id: ID
+    createdAt: Date!
+    description: String!
+    eventCreator: String!
+    scheduledAt: Date
+    title: String!
+}
+
+type ExtendedUserRelationship {
+    status: Int!
+    updatedAt: Date!
+    user: User!
+}
+
+type Mutation {
+    createEvent(description: String!, scheduledAt: Date, title: String!): Event
+    createUserRelationship(_id: ID!): String!
+    deleteEvent(_id: ID!): String!
+    login(password: String!, username: String!): User
+    register(password: String!, username: String!): User
+}
+
+type Query {
+    getUsers(limit: Int, page: Int, searchTerm: String): UsersResult
+    getUsersWithStatus(limit: Int, page: Int, searchTerm: String): UserStatusResult
+    me: User
+    myEvents: [Event]
+    myRelationships(status: [Int]): [ExtendedUserRelationship]
+}
+
+type User {
+    _id: ID!
+    createdAt: Date!
+    password: String!
+    relationships: [UserRelationship]
+    token: String
+    username: String!
+}
+
+type UserRelationship {
+    status: Int!
+    updatedAt: Date!
+    userId: ID!
+}
+
+type UserStatus {
+    status: Int
+    user: User!
+}
+
+type UserStatusResult {
+    currentPage: Int
+    totalPages: Int
+    users: [UserStatus]
+}
+
+type UsersResult {
+    currentPage: Int
+    totalPages: Int
+    users: [User]
+}
+
+enum CacheControlScope {
+    PRIVATE
+    PUBLIC
+}
+
+
+"Custom date scalar"
+scalar Date
+
+scalar Time
+
+scalar DateTime
+
+"The `Upload` scalar type represents a file upload."
+scalar Upload

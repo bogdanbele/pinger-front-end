@@ -9,7 +9,7 @@ import {Button} from '@material-ui/core';
 const EventPreview = ({event, onClick}) => {
 	console.log(event);
 	return (
-		<Card className="m-5 p-3">
+		<Card className="m-5 p-3 align-self-center">
 			<CardHeader
 				title={event.title}
 				subheader={formattedDate(event.scheduledAt)}/>

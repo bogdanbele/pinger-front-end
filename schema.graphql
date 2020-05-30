@@ -15,6 +15,7 @@ type Event {
 }
 
 type ExtendedUserRelationship {
+    count: Int!
     status: Int!
     updatedAt: Date!
     user: User!

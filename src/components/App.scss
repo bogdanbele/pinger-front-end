@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.EventList {
+  max-width: 450px;
+  margin: 0 auto;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -44,4 +49,11 @@ input:-webkit-autofill:active  {
 /*Change text in autofill textbox*/
 input:-webkit-autofill {
   -webkit-text-fill-color: var(--color) !important;
+}
+
+.content {
+  max-width: 980px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
 }

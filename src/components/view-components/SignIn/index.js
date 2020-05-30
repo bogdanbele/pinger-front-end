@@ -4,13 +4,9 @@ import {IsLoggedInComponent} from '../../feature-components/authentication/helpe
 
 const SignInView = () => {
 	return (
-		<div className='App'>
-			<header className='App-header'>
-				<IsLoggedInComponent>
-					<SignInForm/>
-				</IsLoggedInComponent>
-			</header>
-		</div>
+		<IsLoggedInComponent>
+			<SignInForm/>
+		</IsLoggedInComponent>
 	);
 };
 

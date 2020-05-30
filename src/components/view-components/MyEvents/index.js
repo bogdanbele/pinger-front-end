@@ -5,16 +5,12 @@ import Row from '../../base-components/Row';
 
 const MyEventsView = () => {
 	return (
-		<div className="App">
-			<header className="App-header">
-				<React.Fragment>
-					<Row>
-						<CreateEvent/>
-					</Row>
-					<EventList/>
-				</React.Fragment>
-			</header>
-		</div>
+		<React.Fragment>
+			<Row>
+				<CreateEvent/>
+			</Row>
+			<EventList className="EventList"/>
+		</React.Fragment>
 	);
 };
 

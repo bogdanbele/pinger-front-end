@@ -16,7 +16,7 @@ const SEARCH_USERS = gql`
         getUsersWithStatus(searchTerm: $searchTerm, page: $page, limit: $limit){
             users{
                 user {
-	                _id
+                    _id
                     username
                 }
                 status
@@ -50,34 +50,32 @@ const SearchView = () => {
 	console.log(currentUser);
 
 	return (
-		<div className="App">
-			<header className="App-header">
-				<h1 className="my-5">Search</h1>
-				<NotificationContainer>
-					<UserRelationshipNotificationHandler
-						currentUser={currentUser}/>
-				</NotificationContainer>
+		<React.Fragment>
+			<h1 className="my-5">Search</h1>
+			<NotificationContainer>
+				<UserRelationshipNotificationHandler
+					currentUser={currentUser}/>
+			</NotificationContainer>
 
-				<Card className='d-flex flex-column p-4'>
-					<CardHeader title='Search for a user'/>
-					<ThemeInput
-						label='Username'
-						name='searchTerm'
-						autoComplete='new-password'
-						onChange={({target}) => debouncedCallback(target.value)}
-					/>
-					<div>
-						{loading && <ListItemLoading/>}
-						{data
-						&& <UsersList
-							users={data.getUsersWithStatus.users}
-							client={client}
-							userOnClickCallback={setCurrentUser}/>
-						}
-					</div>
-				</Card>
-			</header>
-		</div>
+			<Card className='d-flex flex-column p-4 w-25 align-self-center'>
+				<CardHeader title='Search for a user'/>
+				<ThemeInput
+					label='Username'
+					name='searchTerm'
+					autoComplete='new-password'
+					onChange={({target}) => debouncedCallback(target.value)}
+				/>
+				<div>
+					{loading && <ListItemLoading/>}
+					{data
+					&& <UsersList
+						users={data.getUsersWithStatus.users}
+						client={client}
+						userOnClickCallback={setCurrentUser}/>
+					}
+				</div>
+			</Card>
+		</React.Fragment>
 	);
 };
 

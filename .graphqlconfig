@@ -9,7 +9,7 @@
           "user-agent": "JS GraphQL",
           "Authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWMwN2VhY2IxN2QyMzZlYzhjMmU1ODMiLCJ1c2VybmFtZSI6InppZ3VyYXQiLCJwYXNzd29yZCI6IiQyYSQxMCRHOWhIM09ZM05FMFIuMXA2TjBUanMuVTRDM0wyd08wUmx5ZDE3dUVrMjFyMUhRQUF4bm9KaSIsImNyZWF0ZWRBdCI6MTU4OTY3MzY0NDA0NSwicmVsYXRpb25zaGlwcyI6W3sidXNlcklkIjoiNWViYWJlMDdiNjg2MGIyNDhjN2Q3YTJiIiwic3RhdHVzIjoxLCJ1cGRhdGVkQXQiOjE1ODk3MDc5MzQxMDZ9LHsidXNlcklkIjoiNWVjMTEwMmE3NDQzNzQ0MmQ0ODk4YTMxIiwic3RhdHVzIjoyLCJ1cGRhdGVkQXQiOjE1ODk3MTA5MTI0NTB9XSwiaWF0IjoxNTkwMzE2MDI3LCJleHAiOjE1OTA5MjA4Mjd9.p-Axmuh9k-bz_NuQeEpSvIjxiq5NRl2eX_7nNAVW0FQ"
         },
-        "introspect": false
+        "introspect": true
       }
     }
   }

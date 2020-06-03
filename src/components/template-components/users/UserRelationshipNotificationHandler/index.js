@@ -41,6 +41,6 @@ const RequestFriendNotification = ({user}) => {
 	);
 };
 
-export const UserRelationshipNotificationHandler = ({currentUser}) => {
-	return TemplateSwitch(currentUser);
+export const UserRelationshipNotificationHandler = ({selectedUser}) => {
+	return TemplateSwitch(selectedUser);
 };

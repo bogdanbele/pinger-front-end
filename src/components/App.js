@@ -10,6 +10,7 @@ import HomeView from './view-components/Home';
 import MyEventsView from './view-components/MyEvents';
 import SignInView from './view-components/SignIn';
 import SignUpView from './view-components/SignUp';
+import MyProfileView from './view-components/MyProfile';
 import AboutView from './view-components/About';
 
 // Routing
@@ -33,6 +34,9 @@ const App = () => {
 						<li>
 							<NavLink to='/search'>Search</NavLink>
 						</li>
+						<li>
+							<NavLink to='/my-profile'>My Profile</NavLink>
+						</li>
 					</ShowOnAuth>
 					<HideOnAuth>
 						<li>
@@ -49,6 +53,7 @@ const App = () => {
 				<div className='content'>
 					<Route exact path='/' component={HomeView} />
 					<PrivateRoute path='/my-events' component={MyEventsView} />
+					<PrivateRoute path='/my-profile' component={MyProfileView} />
 					<Route path='/sign-in' component={SignInView} />
 					<Route path='/sign-up' component={SignUpView} />
 					<PrivateRoute path='/about' component={AboutView} />

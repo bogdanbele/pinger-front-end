@@ -32,7 +32,7 @@ const SearchView = () => {
 
 	const client = useApolloClient();
 
-	const [currentUser, setCurrentUser] = useState(null);
+	const [currentlySelectedUser, setCurrentlySelectedUser] = useState(null);
 
 	const [getUsers, {data, loading}] = useLazyQuery(SEARCH_USERS);
 
@@ -47,14 +47,12 @@ const SearchView = () => {
 		500
 	);
 
-	console.log(currentUser);
-
 	return (
 		<React.Fragment>
 			<h1 className="my-5">Search</h1>
 			<NotificationContainer>
 				<UserRelationshipNotificationHandler
-					currentUser={currentUser}/>
+					selectedUser={currentlySelectedUser}/>
 			</NotificationContainer>
 
 			<Card className='d-flex flex-column p-4 w-25 align-self-center'>
@@ -71,7 +69,7 @@ const SearchView = () => {
 					&& <UsersList
 						users={data.getUsersWithStatus.users}
 						client={client}
-						userOnClickCallback={setCurrentUser}/>
+						userOnClickCallback={setCurrentlySelectedUser}/>
 					}
 				</div>
 			</Card>

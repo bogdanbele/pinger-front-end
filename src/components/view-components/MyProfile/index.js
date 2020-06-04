@@ -1,9 +1,13 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import gql from 'graphql-tag';
-import {useApolloClient, useQuery} from '@apollo/react-hooks';
+import {useApolloClient, useLazyQuery} from '@apollo/react-hooks';
 import {UsersList} from '../../template-components/users/UserList';
 import NotificationContainer from '../../helper-components/notifications/NotificationContainer';
 import {UserRelationshipNotificationHandler} from '../../template-components/users/UserRelationshipNotificationHandler';
+import {Button} from "@material-ui/core";
+import Row from "../../base-components/Row";
+import Item from "../../base-components/Item";
+import Flex from "../../base-components/Flex";
 
 const FETCH_MY_RELATIONSHIPS = gql`
     query myRelationships($status: [Int]){
@@ -23,15 +27,15 @@ const FETCH_MY_RELATIONSHIPS = gql`
 
 const MyProfile = () => {
 	const client = useApolloClient();
+	const [status, setStatus] = useState([0, 1, 2, 3, 4]);
 
-	const {data} = useQuery(FETCH_MY_RELATIONSHIPS, {variables: {status : [0,1,2,3]}});
+	const [fetchMyRelationships, {data}] = useLazyQuery(FETCH_MY_RELATIONSHIPS);
 	console.log(data);
 	const [currentlySelectedUser, setCurrentlySelectedUser] = useState(null);
 
-
-	if (!data) {
-		return null;
-	}
+	useEffect(() => {
+		fetchMyRelationships({variables: {status}});
+	}, [status, fetchMyRelationships]);
 
 	return (
 		<div className="App">
@@ -39,11 +43,21 @@ const MyProfile = () => {
 				<UserRelationshipNotificationHandler
 					selectedUser={currentlySelectedUser}/>
 			</NotificationContainer>
+			<Row>
+				<Flex className="flex-column">
+					<Button onClick={() => setStatus(0)
+					}>Awaiting Response From</Button>
+					<Button onClick={() => setStatus(1)
+					}>Awaiting Response</Button>
+					<Button onClick={() => setStatus(2)
+					}>My friends</Button>
+				</Flex>
+			</Row>
 			{data
-				&& <UsersList
-					users={data.myRelationships.users}
-					client={client}
-					userOnClickCallback={setCurrentlySelectedUser}/>
+			&& <UsersList
+				users={data.myRelationships.users}
+				client={client}
+				userOnClickCallback={setCurrentlySelectedUser}/>
 			}
 		</div>
 	);

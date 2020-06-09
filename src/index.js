@@ -47,15 +47,22 @@ const authLink = setContext((_, {headers}) => {
 const httpLinkWithErrorHandling
 		= onError(({graphQLErrors, networkError}) => {
 			if (graphQLErrors) {
-				graphQLErrors.forEach(({message, locations, path}) =>
+				graphQLErrors.forEach(({message, locations, path}) => {
+					if (message === 'Please Login Again!') {
+						if (Boolean(localStorage.getItem('token'))) {
+							localStorage.removeItem('token');
+						}
+					}
 					console.log(
 						`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`,
-					),
+					);
+				}
 				);
 			}
 			if (networkError) {
 				console.log(`[Network error]: ${networkError}`);
 			}
+
 		});
 
 // Initializing the ApolloClient

@@ -15,10 +15,18 @@ type Event {
 }
 
 type ExtendedUserRelationship {
-    count: Int!
     status: Int!
     updatedAt: Date!
     user: User!
+}
+
+type Invite {
+    _id: ID!
+    dateEnd: Date!
+    dateSent: Date!
+    event: Event
+    response: Int
+    users: [User!]!
 }
 
 type Mutation {
@@ -27,6 +35,14 @@ type Mutation {
     deleteEvent(_id: ID!): String!
     login(password: String!, username: String!): User
     register(password: String!, username: String!): User
+    updateUserRelationship(_id: ID!, status: Int!): String!
+}
+
+type MyRelationshipsResponse {
+    count: Int!
+    currentPage: Int!
+    totalPages: Int!
+    users: [ExtendedUserRelationship]
 }
 
 type Query {
@@ -34,7 +50,7 @@ type Query {
     getUsersWithStatus(limit: Int, page: Int, searchTerm: String): UserStatusResult
     me: User
     myEvents: [Event]
-    myRelationships(status: [Int]): [ExtendedUserRelationship]
+    myRelationships(status: [Int]): MyRelationshipsResponse
 }
 
 type User {

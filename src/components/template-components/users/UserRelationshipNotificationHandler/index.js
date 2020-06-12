@@ -3,6 +3,13 @@ import CardHeader from '@material-ui/core/CardHeader';
 import Typography from '@material-ui/core/Typography';
 import Button from '../../../base-components/Button/Button';
 import {USER_STATUS_TYPE} from '../utils';
+import gql from 'graphql-tag';
+
+const CREATE_USER_RELATIONSHIP = gql`
+	mutation createUserRelationship($id: ID!){
+		createUserRelationship(_id: $id)
+	}
+`;
 
 // Switch
 

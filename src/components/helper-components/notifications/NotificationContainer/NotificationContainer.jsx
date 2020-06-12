@@ -14,6 +14,7 @@ const NotificationContainer = props => {
 
 	const {data} = useQuery(IS_NOTIFICATION_MODAL_OPEN);
 
+
 	// Render Component inside the portal
 
 	const domElement = document.getElementById('portal');

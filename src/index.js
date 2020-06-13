@@ -27,6 +27,7 @@ cache.writeData({
 	data: {
 		isLoggedIn: !!localStorage.getItem('token'),
 		isNotificationModalOpen : false,
+		willReload: false,
 	},
 });
 
@@ -51,6 +52,7 @@ const httpLinkWithErrorHandling
 					if (message === 'Please Login Again!') {
 						if (Boolean(localStorage.getItem('token'))) {
 							localStorage.removeItem('token');
+							cache.writeData({data: {willReload: true}});
 						}
 					}
 					console.log(

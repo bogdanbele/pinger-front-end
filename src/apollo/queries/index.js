@@ -11,3 +11,9 @@ export const IS_NOTIFICATION_MODAL_OPEN = gql`
         isNotificationModalOpen @client
     }
 `;
+
+export const WILL_RELOAD = gql`
+    query WillReload {
+        willReload @client
+    }    
+`;

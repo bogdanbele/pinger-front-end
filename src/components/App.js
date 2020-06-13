@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 // Styles
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -18,8 +18,19 @@ import {HashRouter, NavLink, Route} from 'react-router-dom';
 import {HideOnAuth, ShowOnAuth} from './helper-components/routing/';
 import {PrivateRoute} from './helper-components/routing/PrivateRoute';
 import SearchView from './view-components/Search';
+import {useApolloClient, useQuery} from '@apollo/react-hooks';
+import {WILL_RELOAD} from '../apollo/queries';
 
 const App = () => {
+	const client = useApolloClient();
+
+	const {data : {willReload}} = useQuery(WILL_RELOAD);
+
+	if (willReload === true) {
+		client.writeData({data: {willReload: false}});
+		window.history.go();
+	}
+
 	return (
 		<HashRouter>
 			<div className='App'>

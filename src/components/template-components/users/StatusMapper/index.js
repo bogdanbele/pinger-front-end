@@ -18,8 +18,6 @@ const iconSwitch = status => {
 			return <EmailIcon/>; // needs to respond to invite
 		case USER_STATUS_TYPE.FRIENDS :
 			return <PeopleIcon/>;   // friends / accepted
-		case USER_STATUS_TYPE.DECLINED :
-			return <PersonAddDisabledIcon/>; // declined
 		case USER_STATUS_TYPE.BLOCKED :
 			return <PersonAddDisabledIcon/>; // blocked
 		default:
@@ -37,10 +35,10 @@ const secondaryTestSwitch = status => {
 			return 'waiting for response'; // needs to respond to invite
 		case USER_STATUS_TYPE.FRIENDS :
 			return 'friends';   // friends / accepted
-		case USER_STATUS_TYPE.DECLINED :
-			return 'declined'; // declined
 		case USER_STATUS_TYPE.BLOCKED :
 			return 'blocked'; // blocked
+		case 4:
+			return 'UNSUPPORTED CASE'
 		default:
 			return 'no relationship';
 	}

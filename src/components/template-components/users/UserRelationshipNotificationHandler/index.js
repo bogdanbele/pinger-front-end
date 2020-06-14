@@ -4,30 +4,43 @@ import Typography from '@material-ui/core/Typography';
 import Button from '../../../base-components/Button/Button';
 import {USER_STATUS_TYPE} from '../utils';
 import gql from 'graphql-tag';
+import {useMutation} from '@apollo/react-hooks';
+import {SEARCH_USERS} from '../../../view-components/Search';
 
 const CREATE_USER_RELATIONSHIP = gql`
-	mutation createUserRelationship($id: ID!){
-		createUserRelationship(_id: $id)
-	}
+    mutation createUserRelationship($id: ID!){
+        createUserRelationship(_id: $id)
+    }
 `;
 
 // Switch
 
-const TemplateSwitch = ({user,status}) => {
-
-	switch (status) {
-		case USER_STATUS_TYPE.NULL :
-			return <RequestFriendNotification user={user} />;
-		case USER_STATUS_TYPE.PENDING:
-			return <p>case 0</p>;
-		case USER_STATUS_TYPE.AWAITING:
-			return <p>case 1</p>;
-		default: return <p>case 0</p>;
-	}
-};
+const TemplateSwitch
+	= ({user, status}, queriedByStatus, queriedBySearchTerm) => {
+		console.log(queriedByStatus);
+		console.log(queriedBySearchTerm);
+		switch (status) {
+			case USER_STATUS_TYPE.NULL :
+				return <RequestFriendNotification
+					user={user}
+					searchTerm={queriedBySearchTerm}/>;
+			case USER_STATUS_TYPE.PENDING:
+				return <p>case 0</p>;
+			case USER_STATUS_TYPE.AWAITING:
+				return <p>case 1</p>;
+			default:
+				return <p>case 0</p>;
+		}
+	};
 
 // Templates
-const RequestFriendNotification = ({user}) => {
+const RequestFriendNotification = ({user, searchTerm}) => {
+	console.log(searchTerm)
+	const [createUserRelationship] = useMutation(CREATE_USER_RELATIONSHIP, {
+		refetchQueries: [{query: SEARCH_USERS, variables: {searchTerm}}],
+		awaitRefetchQueries: true,
+	});
+
 	if (!user) {
 		return null;
 	}
@@ -41,13 +54,15 @@ const RequestFriendNotification = ({user}) => {
 				component="p">
 				{`Add ${user.username} to your friends list?`}
 			</Typography>
-			<Button onClick={() => console.log('click')}>
+			<Button onClick={() => createUserRelationship(
+				{variables : { id : user._id}})}>
 				Add
 			</Button>
 		</React.Fragment>
 	);
 };
 
-export const UserRelationshipNotificationHandler = ({selectedUser}) => {
-	return TemplateSwitch(selectedUser);
-};
+export const UserRelationshipNotificationHandler
+	= ({selectedUser, queriedByStatus, queriedBySearchTerm}) => {
+		return TemplateSwitch(selectedUser, queriedByStatus, queriedBySearchTerm);
+	};

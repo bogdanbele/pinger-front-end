@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '../../../base-components/Button/Button';
 import {USER_STATUS_TYPE} from '../utils';
 import gql from 'graphql-tag';
-import {useMutation} from '@apollo/react-hooks';
+import {useApolloClient, useMutation} from '@apollo/react-hooks';
 import {SEARCH_USERS} from '../../../view-components/Search';
 
 const CREATE_USER_RELATIONSHIP = gql`
@@ -35,14 +35,25 @@ const TemplateSwitch
 
 // Templates
 const RequestFriendNotification = ({user, searchTerm}) => {
-	console.log(searchTerm)
-	const [createUserRelationship] = useMutation(CREATE_USER_RELATIONSHIP, {
-		refetchQueries: [{query: SEARCH_USERS, variables: {searchTerm}}],
-		awaitRefetchQueries: true,
-	});
+	const client = useApolloClient();
+
+	console.log(searchTerm);
+	const [createUserRelationship, {data}]
+		= useMutation(CREATE_USER_RELATIONSHIP, {
+			refetchQueries: [{query: SEARCH_USERS, variables: {searchTerm}}],
+			awaitRefetchQueries: true,
+		});
 
 	if (!user) {
 		return null;
+	}
+
+	if (data) {
+		client.writeData({
+			data: {
+				isNotificationModalOpen: false,
+			},
+		});
 	}
 	return (
 		<React.Fragment>
@@ -55,7 +66,7 @@ const RequestFriendNotification = ({user, searchTerm}) => {
 				{`Add ${user.username} to your friends list?`}
 			</Typography>
 			<Button onClick={() => createUserRelationship(
-				{variables : { id : user._id}})}>
+				{variables: {id: user._id}})}>
 				Add
 			</Button>
 		</React.Fragment>

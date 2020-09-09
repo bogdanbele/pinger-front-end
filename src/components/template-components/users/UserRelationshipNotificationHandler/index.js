@@ -13,67 +13,107 @@ const CREATE_USER_RELATIONSHIP = gql`
     }
 `;
 
+
+const DELETE_USER_RELATIONSHIP = gql`
+    mutation deleteUserRelationship($id: ID!){
+        deleteUserRelationship(_id: $id)
+    }
+`;
+
 // Switch
 
 const TemplateSwitch
-	= ({user, status}, queriedByStatus, queriedBySearchTerm) => {
-		console.log(queriedByStatus);
-		console.log(queriedBySearchTerm);
-		switch (status) {
-			case USER_STATUS_TYPE.NULL :
-				return <RequestFriendNotification
-					user={user}
-					searchTerm={queriedBySearchTerm}/>;
-			case USER_STATUS_TYPE.PENDING:
-				return <p>case 0</p>;
-			case USER_STATUS_TYPE.AWAITING:
-				return <p>case 1</p>;
-			default:
-				return <p>case 0</p>;
-		}
-	};
+	 = ({user, status}, queriedByStatus, queriedBySearchTerm) => {
+	 console.log(queriedByStatus);
+	 console.log(queriedBySearchTerm);
+	 switch (status) {
+		  case USER_STATUS_TYPE.NULL :
+	 			return <RequestFriendNotification
+					 user={user}
+					 searchTerm={queriedBySearchTerm}/>;
+		  case USER_STATUS_TYPE.PENDING:
+	 			return <RemoveFriendNotification
+					 user={user}
+	 			/>;
+		  case USER_STATUS_TYPE.AWAITING:
+	 			return <p>case 1</p>;
+		  default:
+	 			return <p>case 0</p>;
+	 }
+	 };
+
+const RemoveFriendNotification = ({user}) => {
+
+	 console.log(user);
+
+	 const [deleteUserRelationship, {data}]
+		  = useMutation(DELETE_USER_RELATIONSHIP);
+
+	 if (!user) {
+		  return null;
+	 }
+
+	 return (
+		  <React.Fragment>
+			<CardHeader
+					 title={user.username}/>
+			<Typography
+					 variant="body2"
+					 color="textSecondary"
+					 component="p">
+					 {`Add ${user.username} to your friends list?`}
+			</Typography>
+			<Button onClick={() => deleteUserRelationship(
+					 {variables: {id: user._id}})}>
+					 Remove
+			</Button>
+		  </React.Fragment>
+	 );
+};
 
 // Templates
 const RequestFriendNotification = ({user, searchTerm}) => {
-	const client = useApolloClient();
+	 const client = useApolloClient();
 
-	console.log(searchTerm);
-	const [createUserRelationship, {data}]
-		= useMutation(CREATE_USER_RELATIONSHIP, {
-			refetchQueries: [{query: SEARCH_USERS, variables: {searchTerm}}],
-			awaitRefetchQueries: true,
-		});
+	 console.log(user);
 
-	if (!user) {
-		return null;
-	}
+	 console.log(searchTerm);
+	 const [createUserRelationship, {data}]
+		  = useMutation(CREATE_USER_RELATIONSHIP, {
+		  refetchQueries: [{query: SEARCH_USERS, variables: {searchTerm}}],
+		  awaitRefetchQueries: true,
+	 });
 
-	if (data) {
-		client.writeData({
+	 if (!user) {
+		  return null;
+	 }
+
+	 if (data) {
+		  client.writeData({
 			data: {
-				isNotificationModalOpen: false,
+					 isNotificationModalOpen: false,
 			},
-		});
-	}
-	return (
-		<React.Fragment>
+		  });
+	 }
+	 return (
+		  <React.Fragment>
 			<CardHeader
-				title={user.username}/>
+					 title={user.username}/>
 			<Typography
-				variant="body2"
-				color="textSecondary"
-				component="p">
-				{`Add ${user.username} to your friends list?`}
+					 variant="body2"
+					 color="textSecondary"
+					 component="p">
+					 {`Add ${user.username} to your friends list?`}
 			</Typography>
 			<Button onClick={() => createUserRelationship(
-				{variables: {id: user._id}})}>
-				Add
+					 {variables: {id: user._id}})}>
+					 Add
 			</Button>
-		</React.Fragment>
-	);
+		  </React.Fragment>
+	 );
 };
 
 export const UserRelationshipNotificationHandler
-	= ({selectedUser, queriedByStatus, queriedBySearchTerm}) => {
-		return TemplateSwitch(selectedUser, queriedByStatus, queriedBySearchTerm);
-	};
+	 = ({selectedUser, queriedByStatus, queriedBySearchTerm}) => {
+	 return TemplateSwitch(selectedUser, queriedByStatus, queriedBySearchTerm);
+	 };

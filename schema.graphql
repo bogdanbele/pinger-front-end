@@ -33,6 +33,7 @@ type Mutation {
     createEvent(description: String!, scheduledAt: Date, title: String!): Event
     createUserRelationship(_id: ID!): String!
     deleteEvent(_id: ID!): String!
+    deleteUserRelationship(_id: ID!): String!
     login(password: String!, username: String!): User
     register(password: String!, username: String!): User
     updateUserRelationship(_id: ID!, status: Int!): String!

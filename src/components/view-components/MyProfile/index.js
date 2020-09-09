@@ -13,7 +13,12 @@ export const FETCH_MY_RELATIONSHIPS = gql`
         myRelationships(status: $status){
             users{
                 user{
+						  _id
                     username
+						  relationships {
+								status
+								updatedAt
+						  }
                 }
                 status
             }

@@ -4,10 +4,9 @@ import {useApolloClient, useLazyQuery} from '@apollo/react-hooks';
 import {UsersList} from '../../template-components/users/UserList';
 import NotificationContainer from '../../helper-components/notifications/NotificationContainer';
 import {UserRelationshipNotificationHandler} from '../../template-components/users/UserRelationshipNotificationHandler';
-import {Button} from "@material-ui/core";
-import Row from "../../base-components/Row";
-import Item from "../../base-components/Item";
-import Flex from "../../base-components/Flex";
+import {Button} from '@material-ui/core';
+import Row from '../../base-components/Row';
+import Flex from '../../base-components/Flex';
 
 const FETCH_MY_RELATIONSHIPS = gql`
     query myRelationships($status: [Int]){

@@ -2,7 +2,7 @@ import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText/ListItemText';
 import List from '@material-ui/core/List';
-import {StatusMapper} from '../StatusMapper';
+import {UserStatusMapper} from '../UserStatusMapper';
 
 export const UsersList = ({users, client, userOnClickCallback}) => {
 
@@ -23,7 +23,7 @@ export const UsersList = ({users, client, userOnClickCallback}) => {
 			          });
 			          userOnClickCallback(elem);
 		          }}>
-			<StatusMapper
+			<UserStatusMapper
 				status={elem.status}
 				user={elem.user}/>
 		</ListItem>,

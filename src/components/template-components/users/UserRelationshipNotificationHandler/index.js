@@ -6,6 +6,7 @@ import {USER_STATUS_TYPE} from '../utils';
 import gql from 'graphql-tag';
 import {useApolloClient, useMutation} from '@apollo/react-hooks';
 import {SEARCH_USERS} from '../../../view-components/Search';
+import {FETCH_MY_RELATIONSHIPS} from "../../../view-components/MyProfile";
 
 const CREATE_USER_RELATIONSHIP = gql`
     mutation createUserRelationship($id: ID!){
@@ -34,6 +35,7 @@ const TemplateSwitch
 		  case USER_STATUS_TYPE.PENDING:
 	 			return <RemoveFriendNotification
 					 user={user}
+					 status={queriedByStatus}
 	 			/>;
 		  case USER_STATUS_TYPE.AWAITING:
 	 			return <p>case 1</p>;
@@ -42,12 +44,14 @@ const TemplateSwitch
 	 }
 	 };
 
-const RemoveFriendNotification = ({user}) => {
+const RemoveFriendNotification = ({user, status}) => {
 
 	 console.log(user);
 
 	 const [deleteUserRelationship, {data}]
-		  = useMutation(DELETE_USER_RELATIONSHIP);
+		  = useMutation(DELETE_USER_RELATIONSHIP, {
+		  	 refetchQueries: [{query: FETCH_MY_RELATIONSHIPS, variables: {status}}],
+	 });
 
 	 if (!user) {
 		  return null;
@@ -74,10 +78,7 @@ const RemoveFriendNotification = ({user}) => {
 // Templates
 const RequestFriendNotification = ({user, searchTerm}) => {
 	 const client = useApolloClient();
-
-	 console.log(user);
-
-	 console.log(searchTerm);
+	 
 	 const [createUserRelationship, {data}]
 		  = useMutation(CREATE_USER_RELATIONSHIP, {
 		  refetchQueries: [{query: SEARCH_USERS, variables: {searchTerm}}],

@@ -8,7 +8,7 @@ import {Button} from '@material-ui/core';
 import Row from '../../base-components/Row';
 import Flex from '../../base-components/Flex';
 
-const FETCH_MY_RELATIONSHIPS = gql`
+export const FETCH_MY_RELATIONSHIPS = gql`
     query myRelationships($status: [Int]){
         myRelationships(status: $status){
             users{
@@ -36,11 +36,14 @@ const MyProfile = () => {
 		fetchMyRelationships({variables: {status}});
 	}, [status, fetchMyRelationships]);
 
+	console.log('status = ' + status);
 	return (
 		<div className="App">
 			<NotificationContainer>
 				<UserRelationshipNotificationHandler
-					selectedUser={currentlySelectedUser}/>
+					selectedUser={currentlySelectedUser}
+					queriedByStatus={status}
+				/>
 			</NotificationContainer>
 			<Row>
 				<Flex className="flex-column">

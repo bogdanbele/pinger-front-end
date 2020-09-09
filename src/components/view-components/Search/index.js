@@ -11,7 +11,7 @@ import {UsersList} from '../../template-components/users/UserList';
 import {UserRelationshipNotificationHandler} from '../../template-components/users/UserRelationshipNotificationHandler';
 
 
-const SEARCH_USERS = gql`
+export const SEARCH_USERS = gql`
     query getUsersWithStatus($searchTerm: String!, $page: Int, $limit: Int){
         getUsersWithStatus(searchTerm: $searchTerm, page: $page, limit: $limit){
             users{
@@ -33,6 +33,7 @@ const SearchView = () => {
 	const client = useApolloClient();
 
 	const [currentlySelectedUser, setCurrentlySelectedUser] = useState(null);
+	const [searchTermInState, setSearchTermInState] = useState(null);
 
 	const [getUsers, {data, loading}] = useLazyQuery(SEARCH_USERS);
 
@@ -40,19 +41,25 @@ const SearchView = () => {
 
 	const [debouncedCallback] = useDebouncedCallback(
 		// function
-		value => getUsers({
-			variables: {searchTerm: value},
-		}),
+		value => {
+			return getUsers({
+				variables: {searchTerm: value},
+			});
+		},
 		// delay in ms
 		500
 	);
+
+	console.log(searchTermInState)
 
 	return (
 		<React.Fragment>
 			<h1 className="my-5">Search</h1>
 			<NotificationContainer>
 				<UserRelationshipNotificationHandler
-					selectedUser={currentlySelectedUser}/>
+					selectedUser={currentlySelectedUser}
+					queriedBySearchTerm={searchTermInState}
+				/>
 			</NotificationContainer>
 
 			<Card className='d-flex flex-column p-4 w-25 align-self-center'>
@@ -61,7 +68,10 @@ const SearchView = () => {
 					label='Username'
 					name='searchTerm'
 					autoComplete='new-password'
-					onChange={({target}) => debouncedCallback(target.value)}
+					onChange={({target}) => {
+						setSearchTermInState(target.value);
+						return debouncedCallback(target.value);
+					}}
 				/>
 				<div>
 					{loading && <ListItemLoading/>}

@@ -3,5 +3,6 @@ export const USER_STATUS_TYPE = {
 	PENDING: 0,
 	AWAITING: 1,
 	FRIENDS: 2,
-	BLOCKED: 3,
+	BLOCKED: -1,
+	BLOCKED_BY: -2,
 };

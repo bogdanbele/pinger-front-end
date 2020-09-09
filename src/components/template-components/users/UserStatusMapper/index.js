@@ -20,6 +20,8 @@ const iconSwitch = status => {
 			return <PeopleIcon/>;   // friends / accepted
 		case USER_STATUS_TYPE.BLOCKED :
 			return <PersonAddDisabledIcon/>; // blocked
+		case 4:
+			return <PersonAddDisabledIcon/>; // blocked
 		default:
 			return <PersonAddIcon/>;
 	}

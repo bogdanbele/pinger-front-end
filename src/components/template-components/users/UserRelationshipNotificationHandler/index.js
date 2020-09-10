@@ -96,6 +96,7 @@ const RequestFriendNotification = ({user, searchTerm}) => {
 			},
 		  });
 	 }
+	 
 	 return (
 		  <React.Fragment>
 			<CardHeader

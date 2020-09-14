@@ -7,9 +7,9 @@ const MyEventsView = () => {
 	return (
 		<React.Fragment>
 			<Row>
-				<CreateEvent/>
+				<CreateEvent />
 			</Row>
-			<EventList className="EventList"/>
+			<EventList className="EventList" />
 		</React.Fragment>
 	);
 };

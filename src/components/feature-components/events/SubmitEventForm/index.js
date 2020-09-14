@@ -9,32 +9,33 @@ import DateMomentUtil from '@date-io/moment'; // choose your lib
 import gql from 'graphql-tag';
 
 const CREATE_EVENT = gql`
-    mutation createEvent(
-        $title: String!,
-        $description: String!,
-        $scheduledAt: Date!){
-        	createEvent(
-            	title: $title,
-            	description: $description,
-            	scheduledAt: $scheduledAt){
-            	_id
-        }
-    }
+	mutation createEvent(
+		$title: String!
+		$description: String!
+		$scheduledAt: Date!
+	) {
+		createEvent(
+			title: $title
+			description: $description
+			scheduledAt: $scheduledAt
+		) {
+			_id
+		}
+	}
 `;
 
 const FETCH_MY_EVENTS = gql`
-    query myEvents {
-        myEvents {
-            _id
-            __typename
-            title
-            description
-            createdAt
-            scheduledAt
-        }
-    }
+	query myEvents {
+		myEvents {
+			_id
+			__typename
+			title
+			description
+			createdAt
+			scheduledAt
+		}
+	}
 `;
-
 
 const SubmitEventForm = () => {
 	const [title, setTitle] = useState('');
@@ -49,32 +50,39 @@ const SubmitEventForm = () => {
 
 	return (
 		<MuiPickersUtilsProvider utils={DateMomentUtil}>
-			<Card className='d-flex flex-column p-4'>
-				<CardHeader title='Submit a new event' subheader='No drama'/>
+			<Card className="d-flex flex-column p-4">
+				<CardHeader title="Submit a new event" subheader="No drama" />
 				<ThemeInput
-					label='Event Name'
-					name='event'
+					label="Event Name"
+					name="event"
 					value={title}
 					onChange={({target}) => setTitle(target.value)}
 				/>
 				<ThemeInput
-					label='Event Description'
-					name='description'
+					label="Event Description"
+					name="description"
 					value={description}
 					onChange={({target}) => setDescription(target.value)}
 				/>
-				<DateTimePicker label='Event date' className='my-4' value={scheduledAt} onChange={handleDateChange}/>
+				<DateTimePicker
+					label="Event date"
+					className="my-4"
+					value={scheduledAt}
+					onChange={handleDateChange}
+				/>
 
 				<Button
-					type='button'
-					className='align-self-center'
-					onClick={() => createEvent({
-						variables: {
-							title,
-							description,
-							scheduledAt,
-						},
-					})}
+					type="button"
+					className="align-self-center"
+					onClick={() =>
+						createEvent({
+							variables: {
+								title,
+								description,
+								scheduledAt,
+							},
+						})
+					}
 				>
 					Create Event
 				</Button>

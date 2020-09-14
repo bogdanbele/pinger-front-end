@@ -5,7 +5,7 @@ import {IsLoggedInComponent} from '../../feature-components/authentication/helpe
 const SignUpView = () => {
 	return (
 		<IsLoggedInComponent>
-			<SignUpForm/>
+			<SignUpForm />
 		</IsLoggedInComponent>
 	);
 };

@@ -26,7 +26,7 @@ const cache = new InMemoryCache();
 cache.writeData({
 	data: {
 		isLoggedIn: !!localStorage.getItem('token'),
-		isNotificationModalOpen : false,
+		isNotificationModalOpen: false,
 		willReload: false,
 	},
 });
@@ -45,32 +45,29 @@ const authLink = setContext((_, {headers}) => {
 });
 
 // Global error handling
-const httpLinkWithErrorHandling
-		= onError(({graphQLErrors, networkError}) => {
-			if (graphQLErrors) {
-				graphQLErrors.forEach(({message, locations, path}) => {
-					if (message === 'Please Login Again!') {
-						if (Boolean(localStorage.getItem('token'))) {
-							localStorage.removeItem('token');
-							cache.writeData({data: {willReload: true}});
-						}
-					}
-					console.log(
-						`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`,
-					);
+const httpLinkWithErrorHandling = onError(({graphQLErrors, networkError}) => {
+	if (graphQLErrors) {
+		graphQLErrors.forEach(({message, locations, path}) => {
+			if (message === 'Please Login Again!') {
+				if (Boolean(localStorage.getItem('token'))) {
+					localStorage.removeItem('token');
+					cache.writeData({data: {willReload: true}});
 				}
-				);
 			}
-			if (networkError) {
-				console.log(`[Network error]: ${networkError}`);
-			}
-
+			console.log(
+				`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
+			);
 		});
+	}
+	if (networkError) {
+		console.log(`[Network error]: ${networkError}`);
+	}
+});
 
 // Initializing the ApolloClient
 const client = new ApolloClient({
 	cache,
-	name : 'web-frontend',
+	name: 'web-frontend',
 	link: ApolloLink.from([httpLinkWithErrorHandling, authLink.concat(httpLink)]),
 	resolvers,
 });
@@ -79,7 +76,7 @@ const client = new ApolloClient({
 // Render the App inside the -root- element
 ReactDOM.render(
 	<ApolloProvider client={client}>
-		<App/>
+		<App />
 	</ApolloProvider>,
 	document.getElementById('root')
 );

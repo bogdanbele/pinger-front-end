@@ -5,22 +5,22 @@ import gql from 'graphql-tag';
 
 // Queries and Mutations
 const DELETE_EVENT = gql`
-    mutation deleteEvent($id: ID!) {
-        deleteEvent(_id: $id)
-    }
+	mutation deleteEvent($id: ID!) {
+		deleteEvent(_id: $id)
+	}
 `;
 
 const FETCH_MY_EVENTS = gql`
-    query myEvents {
-        myEvents {
-            _id
-            __typename
-            title
-            description
-            createdAt
-	        scheduledAt
-        }
-    }
+	query myEvents {
+		myEvents {
+			_id
+			__typename
+			title
+			description
+			createdAt
+			scheduledAt
+		}
+	}
 `;
 
 const EventList = props => {
@@ -36,18 +36,20 @@ const EventList = props => {
 		return null;
 	}
 
-	const deleteOnClick = id => deleteEvent({
-		variables: {id},
-	}).catch(e => console.log(e));
+	const deleteOnClick = id =>
+		deleteEvent({
+			variables: {id},
+		}).catch(e => console.log(e));
 
 	return (
 		<div {...props}>
-			{data.myEvents.map((event, key) =>
+			{data.myEvents.map((event, key) => 
 				<EventPreview
 					event={event}
 					key={key}
 					onClick={() => deleteOnClick(event._id)}
-				/>)}
+				/>
+			)}
 		</div>
 	);
 };

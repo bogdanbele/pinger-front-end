@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand />
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7c73bb65-2261-41a3-aad0-6a0ade079d07" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/jsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Bogdan.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/pinger-frontend.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/project-label.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.prettierrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apollo/queries/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/apollo/queries/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apollo/resolvers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/apollo/resolvers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/feature-components/authentication/SignInForm/SignInForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/feature-components/authentication/SignInForm/SignInForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/feature-components/authentication/helpers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/feature-components/authentication/helpers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/feature-components/events/EventList/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/feature-components/events/EventList/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/feature-components/events/SubmitEventForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/feature-components/events/SubmitEventForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/helper-components/loading/ListItemLoading/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/helper-components/loading/ListItemLoading/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/helper-components/routing/PrivateRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/helper-components/routing/PrivateRoute.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/helper-components/routing/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/helper-components/routing/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/template-components/events/EventPreview/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/template-components/events/EventPreview/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/template-components/users/UserList/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/template-components/users/UserList/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/template-components/users/UserRelationshipNotificationHandler/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/template-components/users/UserRelationshipNotificationHandler/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/template-components/users/UserStatusMapper/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/template-components/users/UserStatusMapper/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/template-components/users/utils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/template-components/users/utils/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/view-components/About/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/view-components/About/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/view-components/Home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/view-components/Home/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/view-components/MyEvents/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/view-components/MyEvents/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/view-components/MyProfile/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/view-components/MyProfile/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/view-components/Search/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/view-components/Search/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/view-components/SignIn/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/view-components/SignIn/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/view-components/SignUp/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/view-components/SignUp/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/index.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1hHnSNJL5VdHi6xXmDs6ljLeUET" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
+    <property name="run.prettier.on.save" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/view-components" />
+      <recent name="$PROJECT_DIR$/src/components/feature-components/events" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7c73bb65-2261-41a3-aad0-6a0ade079d07" name="Default Changelist" comment="" />
+      <created>1599676883301</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1599676883301</updated>
+      <workItem from="1599676885114" duration="11783000" />
+      <workItem from="1599738772906" duration="1345000" />
+      <workItem from="1599740155774" duration="668000" />
+      <workItem from="1599741207863" duration="111000" />
+      <workItem from="1599741333805" duration="53000" />
+      <workItem from="1600026739990" duration="1826000" />
+      <workItem from="1600101945016" duration="829000" />
+      <workItem from="1600108828409" duration="3720000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="18" y="121" key="MergeDialog" timestamp="1599680731815">
+      <screen x="0" y="23" width="1715" height="1097" />
+    </state>
+    <state x="18" y="121" key="MergeDialog/0.23.1715.1097@0.23.1715.1097" timestamp="1599680731815" />
+    <state x="442" y="445" width="525" height="252" key="MultipleFileMergeDialog" timestamp="1599680731871">
+      <screen x="0" y="23" width="1715" height="1097" />
+    </state>
+    <state x="442" y="445" width="525" height="252" key="MultipleFileMergeDialog/0.23.1715.1097@0.23.1715.1097" timestamp="1599680731871" />
+    <state x="646" y="198" key="RollbackChangesDialog" timestamp="1599680793914">
+      <screen x="0" y="23" width="1715" height="1097" />
+    </state>
+    <state x="646" y="198" key="RollbackChangesDialog/0.23.1715.1097@0.23.1715.1097" timestamp="1599680793914" />
+    <state x="364" y="353" key="SettingsEditor" timestamp="1600111918459">
+      <screen x="0" y="0" width="3440" height="1440" />
+    </state>
+    <state x="364" y="353" key="SettingsEditor/0.0.3440.1440/-1792.0.1792.1120@0.0.3440.1440" timestamp="1600111918459" />
+    <state x="356" y="370" key="SettingsEditor/0.23.3363.1417/-1792.23.1792.1097@0.23.3363.1417" timestamp="1599740076565" />
+    <state width="999" height="585" key="SwitcherDM" timestamp="1600112405987">
+      <screen x="0" y="0" width="3440" height="1440" />
+    </state>
+    <state width="999" height="585" key="SwitcherDM/0.0.3440.1440/-1792.0.1792.1120@0.0.3440.1440" timestamp="1600112405987" />
+    <state width="498" height="445" key="SwitcherDM/0.23.1715.1097@0.23.1715.1097" timestamp="1599683085436" />
+    <state x="1092" y="413" width="1189" height="703" key="find.popup" timestamp="1599688335143">
+      <screen x="0" y="23" width="3363" height="1417" />
+    </state>
+    <state x="557" y="325" width="606" height="544" key="find.popup/0.23.1715.1097@0.23.1715.1097" timestamp="1599686619648" />
+    <state x="1092" y="413" width="1189" height="703" key="find.popup/0.23.3363.1417/-1792.23.1792.1097@0.23.3363.1417" timestamp="1599688335143" />
+    <state x="1043" y="319" width="1349" height="891" key="search.everywhere.popup" timestamp="1600113116139">
+      <screen x="0" y="0" width="3440" height="1440" />
+    </state>
+    <state x="1043" y="319" width="1349" height="891" key="search.everywhere.popup/0.0.3440.1440/-1792.0.1792.1120@0.0.3440.1440" timestamp="1600113116139" />
+    <state x="520" y="266" width="672" height="678" key="search.everywhere.popup/0.23.1715.1097@0.23.1715.1097" timestamp="1599686561692" />
+    <state x="1020" y="337" width="1318" height="876" key="search.everywhere.popup/0.23.3363.1417/-1792.23.1792.1097@0.23.3363.1417" timestamp="1599741284334" />
+  </component>
+</project>

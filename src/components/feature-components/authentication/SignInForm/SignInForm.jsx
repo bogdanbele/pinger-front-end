@@ -1,7 +1,7 @@
 import {useApolloClient, useMutation} from '@apollo/react-hooks';
 import React, {useState} from 'react';
-import Button from '../../../base-components/Button';
-import ThemeInput from '../../../base-components/ThemeInput';
+import Button from 'components/base-components/Button';
+import ThemeInput from 'components/base-components/ThemeInput';
 import Card from '@material-ui/core/Card';
 import styles from '.././authentication.module.scss';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -9,11 +9,11 @@ import {Redirect} from 'react-router-dom';
 import gql from 'graphql-tag';
 
 const LOG_IN = gql`
-    mutation login($username: String!, $password: String!) {
-        login(username: $username, password: $password) {
-            token
-        }
-    }
+	mutation login($username: String!, $password: String!) {
+		login(username: $username, password: $password) {
+			token
+		}
+	}
 `;
 
 export default () => {
@@ -27,33 +27,37 @@ export default () => {
 		client.writeData({data: {isLoggedIn: true}});
 		localStorage.setItem('token', data.login.token);
 		setTimeout(() => {
-			return <Redirect to='/'/>;
+			return <Redirect to="/" />;
 		}, 250);
 	}
 
 	return (
 		<Card className={styles.Card}>
-			<CardHeader title="Notification based events"
-			            subheader="Sign In"/>
+			<CardHeader title="Notification based events" subheader="Sign In" />
 			<ThemeInput
 				label="Username"
 				name="username"
-				autoComplete='new-password'
+				autoComplete="new-password"
 				value={username}
 				onChange={({target}) => setUsername(target.value)}
 			/>
 			<ThemeInput
 				label="Password"
 				name="password"
-				autoComplete='new-password'
+				autoComplete="new-password"
 				value={password}
 				type="password"
 				onChange={({target}) => setPassword(target.value)}
 			/>
 
-			<Button type="button" onClick={() => login({
-				variables: {username, password},
-			})}>
+			<Button
+				type="button"
+				onClick={() =>
+					login({
+						variables: {username, password},
+					})
+				}
+			>
 				Log in
 			</Button>
 		</Card>

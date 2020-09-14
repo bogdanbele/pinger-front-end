@@ -11,19 +11,19 @@ import {USER_STATUS_TYPE} from '../utils';
 const iconSwitch = status => {
 	switch (status) {
 		case USER_STATUS_TYPE.NULL:
-			return <PersonAddIcon/>;
-		case USER_STATUS_TYPE.PENDING :
-			return <HourglassEmptyIcon/>; // pending / awaiting response
-		case USER_STATUS_TYPE.AWAITING :
-			return <EmailIcon/>; // needs to respond to invite
-		case USER_STATUS_TYPE.FRIENDS :
-			return <PeopleIcon/>;   // friends / accepted
-		case USER_STATUS_TYPE.BLOCKED :
-			return <PersonAddDisabledIcon/>; // blocked
+			return <PersonAddIcon />;
+		case USER_STATUS_TYPE.PENDING:
+			return <HourglassEmptyIcon />; // pending / awaiting response
+		case USER_STATUS_TYPE.AWAITING:
+			return <EmailIcon />; // needs to respond to invite
+		case USER_STATUS_TYPE.FRIENDS:
+			return <PeopleIcon />; // friends / accepted
+		case USER_STATUS_TYPE.BLOCKED:
+			return <PersonAddDisabledIcon />; // blocked
 		case 4:
-			return <PersonAddDisabledIcon/>; // blocked
+			return <PersonAddDisabledIcon />; // blocked
 		default:
-			return <PersonAddIcon/>;
+			return <PersonAddIcon />;
 	}
 };
 
@@ -31,13 +31,13 @@ const secondaryTestSwitch = status => {
 	switch (status) {
 		case USER_STATUS_TYPE.NULL:
 			return 'no relationship';
-		case USER_STATUS_TYPE.PENDING :
+		case USER_STATUS_TYPE.PENDING:
 			return 'pending'; // pending / awaiting response
-		case USER_STATUS_TYPE.AWAITING :
+		case USER_STATUS_TYPE.AWAITING:
 			return 'waiting for response'; // needs to respond to invite
-		case USER_STATUS_TYPE.FRIENDS :
-			return 'friends';   // friends / accepted
-		case USER_STATUS_TYPE.BLOCKED :
+		case USER_STATUS_TYPE.FRIENDS:
+			return 'friends'; // friends / accepted
+		case USER_STATUS_TYPE.BLOCKED:
 			return 'blocked'; // blocked
 		case 4:
 			return 'UNSUPPORTED CASE';
@@ -49,9 +49,7 @@ const secondaryTestSwitch = status => {
 export const UserStatusMapper = ({status, user}) => {
 	return (
 		<React.Fragment>
-			<ListItemIcon>
-				{iconSwitch(status)}
-			</ListItemIcon>
+			<ListItemIcon>{iconSwitch(status)}</ListItemIcon>
 			<ListItemText
 				primary={user.username}
 				secondary={secondaryTestSwitch(status)}

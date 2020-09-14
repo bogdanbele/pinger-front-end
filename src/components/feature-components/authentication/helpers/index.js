@@ -1,6 +1,6 @@
 import React from 'react';
 import {useQuery} from '@apollo/react-hooks';
-import {IS_LOGGED_IN} from '../../../../apollo/queries';
+import {IS_LOGGED_IN} from 'apollo/queries';
 
 export const IsLoggedInComponent = ({children}) => {
 	const {loading, error, data} = useQuery(IS_LOGGED_IN);
@@ -10,8 +10,5 @@ export const IsLoggedInComponent = ({children}) => {
 	if (error) {
 		return error;
 	}
-	return data.isLoggedIn 
-		? <p>You are already logged in!</p>
-	 : 		children
-	;
+	return data.isLoggedIn ? <p>You are already logged in!</p> : children;
 };

@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import {useMutation} from '@apollo/react-hooks';
 import Card from '@material-ui/core/Card/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-import ThemeInput from '../../../base-components/ThemeInput/ThemeInput';
-import Button from '../../../base-components/Button/Button';
+import ThemeInput from 'components/base-components/ThemeInput/ThemeInput';
+import Button from 'components/base-components/Button/Button';
 import {DateTimePicker, MuiPickersUtilsProvider} from '@material-ui/pickers';
 import DateMomentUtil from '@date-io/moment'; // choose your lib
 import gql from 'graphql-tag';

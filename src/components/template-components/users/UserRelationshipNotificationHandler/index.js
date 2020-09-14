@@ -1,12 +1,12 @@
 import React from 'react';
 import CardHeader from '@material-ui/core/CardHeader';
 import Typography from '@material-ui/core/Typography';
-import Button from '../../../base-components/Button/Button';
+import Button from 'components/base-components/Button/Button';
 import {USER_STATUS_TYPE} from '../utils';
 import gql from 'graphql-tag';
 import {useApolloClient, useMutation} from '@apollo/react-hooks';
-import {SEARCH_USERS} from '../../../view-components/Search';
-import {FETCH_MY_RELATIONSHIPS} from '../../../view-components/MyProfile';
+import {SEARCH_USERS} from 'components/view-components/Search';
+import {FETCH_MY_RELATIONSHIPS} from 'components/view-components/MyProfile';
 
 const CREATE_USER_RELATIONSHIP = gql`
 	mutation createUserRelationship($id: ID!) {

@@ -6,41 +6,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c73bb65-2261-41a3-aad0-6a0ade079d07" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/jsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Bogdan.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pinger-frontend.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/project-label.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.prettierrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apollo/queries/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/apollo/queries/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apollo/resolvers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/apollo/resolvers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/feature-components/authentication/SignInForm/SignInForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/feature-components/authentication/SignInForm/SignInForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/feature-components/authentication/helpers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/feature-components/authentication/helpers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/feature-components/events/EventList/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/feature-components/events/EventList/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/feature-components/events/SubmitEventForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/feature-components/events/SubmitEventForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/helper-components/loading/ListItemLoading/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/helper-components/loading/ListItemLoading/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/helper-components/notifications/NotificationContainer/NotificationContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/helper-components/notifications/NotificationContainer/NotificationContainer.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/helper-components/routing/PrivateRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/helper-components/routing/PrivateRoute.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/helper-components/routing/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/helper-components/routing/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/template-components/events/EventPreview/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/template-components/events/EventPreview/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/template-components/users/UserList/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/template-components/users/UserList/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/template-components/users/UserRelationshipNotificationHandler/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/template-components/users/UserRelationshipNotificationHandler/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/template-components/users/UserStatusMapper/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/template-components/users/UserStatusMapper/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/template-components/users/utils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/template-components/users/utils/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/view-components/About/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/view-components/About/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/view-components/Home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/view-components/Home/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/view-components/MyEvents/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/view-components/MyEvents/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/view-components/MyProfile/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/view-components/MyProfile/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/view-components/Search/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/view-components/Search/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/view-components/SignIn/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/view-components/SignIn/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/view-components/SignUp/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/view-components/SignUp/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +64,7 @@
       <workItem from="1599741333805" duration="53000" />
       <workItem from="1600026739990" duration="1826000" />
       <workItem from="1600101945016" duration="829000" />
-      <workItem from="1600108828409" duration="3720000" />
+      <workItem from="1600108828409" duration="5336000" />
     </task>
     <servers />
   </component>
@@ -129,10 +101,10 @@
     </state>
     <state x="364" y="353" key="SettingsEditor/0.0.3440.1440/-1792.0.1792.1120@0.0.3440.1440" timestamp="1600111918459" />
     <state x="356" y="370" key="SettingsEditor/0.23.3363.1417/-1792.23.1792.1097@0.23.3363.1417" timestamp="1599740076565" />
-    <state width="999" height="585" key="SwitcherDM" timestamp="1600112405987">
+    <state width="999" height="585" key="SwitcherDM" timestamp="1600114778228">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state width="999" height="585" key="SwitcherDM/0.0.3440.1440/-1792.0.1792.1120@0.0.3440.1440" timestamp="1600112405987" />
+    <state width="999" height="585" key="SwitcherDM/0.0.3440.1440/-1792.0.1792.1120@0.0.3440.1440" timestamp="1600114778228" />
     <state width="498" height="445" key="SwitcherDM/0.23.1715.1097@0.23.1715.1097" timestamp="1599683085436" />
     <state x="1092" y="413" width="1189" height="703" key="find.popup" timestamp="1599688335143">
       <screen x="0" y="23" width="3363" height="1417" />
